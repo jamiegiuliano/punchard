@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "static#welcome"
+
   resources :links
   resources :merchants
   resources :users
