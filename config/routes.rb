@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :links
   resources :merchants
+  resources :users, only: [:show]
 
   # Login routes
   get '/login', to: 'session#new'
