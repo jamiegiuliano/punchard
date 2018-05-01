@@ -3,4 +3,6 @@ class Merchant < ApplicationRecord
   has_one :link
 
   accepts_nested_attributes_for :link
+
+  validates :name, presence: true
 end

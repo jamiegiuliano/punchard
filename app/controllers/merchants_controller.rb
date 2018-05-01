@@ -7,7 +7,7 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = Merchant.new(merchant_params)
-    if @merchant.save
+    if !@merchant.link.url.empty? && @merchant.save
       redirect_to user_path(@merchant.user)
     else
       render :new
