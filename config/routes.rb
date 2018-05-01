@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     member do
-      resources :merchants, only: [:new, :create, :index, :show]
+      resources :merchants
     end
   end
 
@@ -12,5 +12,4 @@ Rails.application.routes.draw do
   end
 
   root 'static#welcome'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
