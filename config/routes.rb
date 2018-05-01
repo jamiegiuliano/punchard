@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "static#welcome"
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users do
     resources :merchants, only: [:new, :create]
   end
 
