@@ -1,8 +1,11 @@
 class User < ApplicationRecord
-  has_secure_password
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_many :merchants
   has_many :links, through: :merchants
 
-  validates :email, presence: true, uniqueness: true, format: /@/
-  validates :password, presence: true, length: { in: 5..10 }
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers:  [:facebook]
 end
