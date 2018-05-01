@@ -1,8 +1,9 @@
-<%= @user.email %>
+<h2><%= @user.email %>'s Loyalty Programs</h2>
 
+<ul>
 <% @user.merchants.each do |merchant| %>
-  <%= merchant.name %>
-  <%= merchant.link.url %>
+  <li><%= link_to merchant.name, merchant.link.url %></li>
 <% end %>
+</ul>
 
-<%= link_to "Log Out", logout_path %>
+<p><%= link_to "Log Out", logout_path %></p>
