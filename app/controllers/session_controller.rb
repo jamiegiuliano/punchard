@@ -9,6 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+      flash[:errors] = "Invalid email or password."
       render :new
     end
   end
