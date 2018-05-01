@@ -6,6 +6,6 @@
 <% end %>
 </ul>
 
-<p><%= link_to "New Merchant", new_user_merchant_path(current_user) %></p>
+<p><%= link_to "New Merchant", new_merchant_path(current_user) %></p>
 
-<p><%= link_to "Log Out", logout_path %></p>
+<p><%= link_to "Log Out", destroy_user_session_path %></p>

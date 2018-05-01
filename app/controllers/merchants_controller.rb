@@ -1,5 +1,9 @@
 class MerchantsController < ApplicationController
 
+
+  def index
+  end
+
   def new
     @user = current_user
     @merchant = @user.merchants.build
@@ -14,6 +18,9 @@ class MerchantsController < ApplicationController
       flash[:errors] = "Make sure URL is valid"
       render :new
     end
+  end
+
+  def show
   end
 
   private
