@@ -1,7 +1,7 @@
 <%= render 'layouts/error_messages', object: @merchant %>
-<%= flash[:errors] unless flash[:errors].empty? %>
+<%= flash[:errors] unless flash[:errors].nil? %>
 
-<%= form_for @merchant do |f| %>
+<%= form_for [current_user, @merchant] do |f| %>
   <%= f.hidden_field :user_id %>
 
   <%= f.label :name %>
