@@ -1,0 +1,16 @@
+<%= form_for @merchant do |f| %>
+  <%= f.hidden_field :user_id %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.fields_for :link, @merchant.build_link do |link_builder| %>
+    <%= link_builder.label :url %>
+    <%= link_builder.text_field :url %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
