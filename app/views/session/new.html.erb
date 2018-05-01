@@ -1,4 +1,4 @@
-<%= flash[:errors] unless flash[:errors].empty? %>
+<%= flash[:errors] unless flash[:errors].nil? %>
 
 <%= form_tag('/session', method: :post) do %>
      <%= label_tag(:email) %>

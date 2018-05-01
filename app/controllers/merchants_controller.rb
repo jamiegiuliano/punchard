@@ -1,4 +1,5 @@
 class MerchantsController < ApplicationController
+
   def new
     @merchant = Merchant.new(user_id: session[:user_id])
   end
