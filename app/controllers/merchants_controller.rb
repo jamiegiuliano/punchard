@@ -13,7 +13,7 @@ class MerchantsController < ApplicationController
     @user = User.find_by(params[:user_id])
     @merchant = @user.merchants.build(merchant_params)
     if !@merchant.link.url.empty? && @merchant.save
-      redirect_to @user
+      redirect_to authenticated_root_path
     else
       flash[:errors] = "Make sure URL is valid"
       render :new
