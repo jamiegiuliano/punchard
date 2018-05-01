@@ -1,9 +1,7 @@
 <%= render 'layouts/error_messages', object: @merchant %>
 <%= flash[:errors] unless flash[:errors].nil? %>
 
-<%= form_for [current_user, @merchant] do |f| %>
-  <%= f.hidden_field :user_id %>
-
+<%= form_for([@user, @merchant]) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -11,7 +9,7 @@
   <%= f.text_field :location %>
 
   <%= f.fields_for :link, @merchant.build_link do |link_builder| %>
-    <%= link_builder.label :url %>
+    <%= link_builder.label :url, "URL:" %>
     <%= link_builder.text_field :url %>
   <% end %>
 

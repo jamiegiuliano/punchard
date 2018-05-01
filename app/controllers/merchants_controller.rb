@@ -1,13 +1,15 @@
 class MerchantsController < ApplicationController
 
   def new
-    @merchant = Merchant.new(user_id: session[:user_id])
+    @user = current_user
+    @merchant = @user.merchants.build
   end
 
   def create
-    @merchant = Merchant.new(merchant_params)
+    @user = User.find_by(params[:user_id])
+    @merchant = @user.merchants.build(merchant_params)
     if !@merchant.link.url.empty? && @merchant.save
-      redirect_to user_path(@merchant.user)
+      redirect_to @user
     else
       flash[:errors] = "Make sure URL is valid"
       render :new

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def new
-    @merchant = current_user.merchants.build
   end
 
   def create
