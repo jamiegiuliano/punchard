@@ -10,6 +10,7 @@ class MerchantsController < ApplicationController
     if !@merchant.link.url.empty? && @merchant.save
       redirect_to user_path(@merchant.user)
     else
+      flash[:errors] = "Make sure URL is valid"
       render :new
     end
   end
