@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: "static#welcome"
 
-  resources :links
-  resources :merchants
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :merchants, only: [:new, :create]
+  end
 
   # Login/Logout routes
   get '/login', to: 'session#new'
