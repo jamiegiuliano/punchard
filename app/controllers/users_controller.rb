@@ -17,9 +17,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: session[:user_id])
   end
 
-  def destroy
-  end
-
   private
   def user_params
     params.require(:user).permit(:email, :phone_number, :password)
