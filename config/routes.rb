@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [] do
+  resources :users, only: [], param: :user_id do
     member do
       resources :merchants
     end

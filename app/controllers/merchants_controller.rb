@@ -1,4 +1,6 @@
 class MerchantsController < ApplicationController
+  #before_action :set_user, only: [:new, :create]
+  
   def index
   end
 
@@ -30,6 +32,10 @@ class MerchantsController < ApplicationController
   end
 
   private
+  def set_user
+    @user = current_user
+  end
+
   def merchant_params
     params.require(:merchant).permit(:user_id, :name, :location, link_attributes: [:url])
   end
