@@ -28,9 +28,9 @@ class MerchantsController < ApplicationController
 
   def update
     @merchant = Merchant.find_by(id: params[:id])
-    if @user.merchants.include?(@merchant)
-      @merchant.update(merchant_params)
-      redirect_to authenticated_root_path
+    if @merchant.update(merchant_params)
+      redirect_to authenticated_root_path, notice: 'User was successfully updated.'
+      #redirect_to authenticated_root_path
     else
       render :edit
     end
