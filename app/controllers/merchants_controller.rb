@@ -1,11 +1,11 @@
 class MerchantsController < ApplicationController
-  #before_action :set_user, only: [:new, :create]
-  
+  before_action :authenticate_user!
+  before_action :set_user, only: [:new, :edit, :update]
+
   def index
   end
 
   def new
-    @user = current_user
     @merchant = @user.merchants.build
   end
 
@@ -23,9 +23,17 @@ class MerchantsController < ApplicationController
   end
 
   def edit
+    @merchant = Merchant.find_by(params[:id])
   end
 
   def update
+    @merchant = Merchant.find_by(id: params[:id])
+    if @user.merchants.include?(@merchant)
+      @merchant.update(merchant_params)
+      redirect_to authenticated_root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
