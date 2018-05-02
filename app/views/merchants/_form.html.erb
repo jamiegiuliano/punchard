@@ -5,7 +5,7 @@
   <%= f.label :location %>
   <%= f.text_field :location %>
 
-  <%= f.fields_for :link, merchant.link do |link_builder| %>
+  <%= f.fields_for :link, link do |link_builder| %>
     <%= link_builder.label :url, "URL:" %>
     <%= link_builder.text_field :url %>
   <% end %>

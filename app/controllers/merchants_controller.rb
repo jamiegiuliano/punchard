@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:new, :edit, :update]
+  before_action :set_user, only: [:new, :edit, :update, :destroy]
 
   def index
   end
@@ -37,6 +37,11 @@ class MerchantsController < ApplicationController
   end
 
   def destroy
+    @merchant = Merchant.find_by(id: params[:id])
+    name = @merchant.name
+
+    @merchant.delete
+    redirect_to merchants_path(current_user), notice: "#{name} deleted successfully."
   end
 
   private

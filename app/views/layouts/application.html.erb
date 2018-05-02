@@ -15,9 +15,7 @@
 
 
 
-    <% if flash[:alert] %>
-  	<p class="alert-warning"><%= flash[:alert] %></p>
-    <% end %>
+    <%= render 'layouts/messages' %>
 
     <%= yield %>
   </body>
