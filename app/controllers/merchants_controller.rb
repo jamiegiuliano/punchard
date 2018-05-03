@@ -28,7 +28,7 @@ class MerchantsController < ApplicationController
   end
 
   def edit
-    @merchant = Merchant.find_by(params[:id])
+    @merchant = Merchant.find_by(id: params[:id])
   end
 
   def update
