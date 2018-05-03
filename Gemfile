@@ -32,7 +32,7 @@ gem 'devise'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'omniauth'
-gem 'omniauth-twitter'
+gem 'omniauth-github'
 gem 'dotenv-rails'
 
 group :development, :test do
