@@ -3,6 +3,11 @@ class MerchantsController < ApplicationController
   before_action :set_user, only: [:new, :edit, :update, :destroy]
 
   def index
+    if !params[:location].blank?
+      @merchants = current_user.merchants.where(location: params[:location])
+    else
+      @merchants = current_user.merchants
+    end
   end
 
   def new

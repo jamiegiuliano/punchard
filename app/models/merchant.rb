@@ -5,4 +5,8 @@ class Merchant < ApplicationRecord
   accepts_nested_attributes_for(:link, update_only: true)
 
   validates :name, presence: true
+
+  def filter_by_location(location)
+    where(location: location)
+  end
 end

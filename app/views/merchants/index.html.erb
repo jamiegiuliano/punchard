@@ -1,7 +1,13 @@
 <h2><%= current_user.name %>'s Loyalty Programs</h2>
 
+Filter by location:
+<%= form_tag(merchants_path(current_user), method: "get") do %>
+ <%= select_tag "location", options_from_collection_for_select(Merchant.all, "location", "location"), include_blank: true %>
+ <%= submit_tag "Filter" %>
+  <% end %>
+
 <ul>
-<% current_user.merchants.each do |merchant| %>
+<% @merchants.each do |merchant| %>
   <li><%= link_to merchant.name, merchant.link.url, target: "_blank" %></li>
   <%= link_to "Edit", edit_merchant_path(current_user, merchant) %>
   <%= link_to "Delete", merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
