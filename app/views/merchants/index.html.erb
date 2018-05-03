@@ -1,10 +1,12 @@
 <h2><%= current_user.name %>'s Loyalty Programs</h2>
 
-Filter by location:
-<%= form_tag(merchants_path(current_user), method: "get") do %>
- <%= select_tag "location", options_for_select(Merchant.distinct.pluck(:location)), include_blank: true %>
- <%= submit_tag "Filter" %>
+<% if !Merchant.distinct.pluck(:location).empty? %>
+  Filter by location:
+  <%= form_tag(merchants_path(current_user), method: "get") do %>
+    <%= select_tag "location", options_for_select(Merchant.distinct.pluck(:location)), include_blank: true %>
+    <%= submit_tag "Filter" %>
   <% end %>
+<% end %>
 
 <ul>
 <% @merchants.each do |merchant| %>
