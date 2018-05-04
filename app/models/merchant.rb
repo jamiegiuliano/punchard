@@ -10,4 +10,8 @@ class Merchant < ApplicationRecord
   def self.by_location(location)
     where(location: location)
   end
+
+  def self.favorite_merchants
+
+  end
 end

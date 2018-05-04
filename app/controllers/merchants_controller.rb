@@ -24,9 +24,6 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     @merchant = Merchant.find_by(id: params[:id])
   end
@@ -38,6 +35,11 @@ class MerchantsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def favorites
+    links = current_user.merchants.collect{|m| m.link}
+    @activity = Scraper.scrape_activity(@activity)
   end
 
   def destroy

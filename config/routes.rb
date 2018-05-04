@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [], param: :user_id do
     member do
       resources :merchants
+      get '/favorite_merchants', to: 'merchants#favorites'
     end
   end
 
