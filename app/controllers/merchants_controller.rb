@@ -37,9 +37,10 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def favorites
-    links = current_user.merchants.collect{|m| m.link}
-    @activity = Scraper.scrape_activity(@activity)
+  def last_visit
+    merchants = current_user.merchants
+    dates = Scraper.scrape_activity(merchants)
+    #current_user.last_visited = dates[0]
   end
 
   def destroy

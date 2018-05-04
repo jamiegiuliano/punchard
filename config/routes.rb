@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [], param: :user_id do
     member do
       resources :merchants
-      get '/favorite_merchants', to: 'merchants#favorites'
+      get '/last_visit', to: 'merchants#last_visit'
     end
   end
 
@@ -13,6 +13,5 @@ Rails.application.routes.draw do
   end
 
   root 'static#welcome'
-
 
 end
