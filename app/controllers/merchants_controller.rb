@@ -37,10 +37,9 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def last_visit
-    merchants = current_user.merchants
-    dates = Scraper.scrape_activity(merchants)
-    current_merchant
+  def most_stars
+    Scraper.scrape_activity(current_user.merchants)
+    binding.pry
   end
 
   def destroy
@@ -58,9 +57,5 @@ class MerchantsController < ApplicationController
 
   def merchant_params
     params.require(:merchant).permit(:user_id, :name, :location, link_attributes: [:url])
-  end
-
-  def current_merchant
-    binding.pry
   end
 end

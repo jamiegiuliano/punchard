@@ -11,7 +11,7 @@ class Merchant < ApplicationRecord
     where(location: location)
   end
 
-  def self.favorite_merchants
-
+  def self.most_stars
+    binding.pry
   end
 end
