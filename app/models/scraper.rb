@@ -9,7 +9,6 @@ class Scraper < ApplicationRecord
      doc.search("div.welcome-content__event__subtitle").children.first.text
    end
    @dates.sort!
-   binding.pry
   end
 
 end
