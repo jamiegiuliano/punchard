@@ -4,9 +4,9 @@ class MerchantsController < ApplicationController
 
   def index
     if !params[:location].blank?
-      @merchants = current_user.merchants.by_location(params[:location])
+      @merchants = user_merchants.by_location(params[:location])
     else
-      @merchants = current_user.merchants
+      @merchants = user_merchants
     end
   end
 
@@ -15,8 +15,7 @@ class MerchantsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(params[:user_id])
-    @merchant = @user.merchants.build(merchant_params)
+    @merchant = user_merchants.build(merchant_params)
     if !@merchant.link.url.empty? && @merchant.save
       redirect_to authenticated_root_path
     else
@@ -38,8 +37,8 @@ class MerchantsController < ApplicationController
   end
 
   def favorite
-    Scraper.scrape_activity(current_user.merchants)
-    @favorite = current_user.merchants.current_favorite
+    Scraper.scrape_activity(user_merchants)
+    @favorite = user_merchants.current_favorite
   end
 
   def destroy
@@ -57,5 +56,9 @@ class MerchantsController < ApplicationController
 
   def merchant_params
     params.require(:merchant).permit(:user_id, :name, :location, link_attributes: [:url])
+  end
+
+  def user_merchants
+    current_user.merchants
   end
 end
