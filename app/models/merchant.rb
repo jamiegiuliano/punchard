@@ -14,6 +14,6 @@ class Merchant < ApplicationRecord
   end
 
   def self.current_favorite(stars)
-    where(star_count: stars)
+    where(star_count: stars).order(:created_at)
   end
 end
