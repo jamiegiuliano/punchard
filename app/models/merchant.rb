@@ -7,11 +7,9 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
 
+  scope :most_stars, -> {order("star_count ASC LIMIT 1")}
+
   def self.by_location(location)
     where(location: location)
-  end
-
-  def self.most_stars
-    binding.pry
   end
 end
