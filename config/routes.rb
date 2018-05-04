@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [], param: :user_id do
     member do
       resources :merchants
-      get '/most_stars', to: 'merchants#most_stars'
+      get '/current_favorite', to: 'merchants#favorite'
     end
   end
 

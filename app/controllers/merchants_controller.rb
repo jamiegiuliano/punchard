@@ -37,9 +37,9 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def most_stars
+  def favorite
     Scraper.scrape_activity(current_user.merchants)
-    binding.pry
+    @favorite = current_user.merchants.current_favorite
   end
 
   def destroy
