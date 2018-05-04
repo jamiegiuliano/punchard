@@ -38,7 +38,8 @@ class MerchantsController < ApplicationController
 
   def favorite
     Scraper.scrape_activity(user_merchants)
-    @favorite = user_merchants.current_favorite
+    @stars = user_merchants.count_stars
+    @favorite = user_merchants.current_favorite(@stars)
   end
 
   def destroy
