@@ -17,6 +17,7 @@ class MerchantsController < ApplicationController
   def create
     @merchant = user_merchants.build(merchant_params)
     if !@merchant.link.url.empty? && @merchant.save
+      Scraper.scrape_image(@merchant)
       redirect_to authenticated_root_path
     else
       render :new
@@ -37,7 +38,7 @@ class MerchantsController < ApplicationController
   end
 
   def favorite
-    Scraper.scrape_activity(user_merchants)
+    Scraper.scrape_stars(user_merchants)
     @favorite = user_merchants.current_favorite(user_merchants.count_stars)
   end
 
