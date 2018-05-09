@@ -10,13 +10,17 @@
 <% end %>
 </div>
 
-<ul>
+<div class="col s6">
+  <ul class="collection">
 <% @merchants.each do |merchant| %>
-  <li><%= link_to merchant.name, merchant.link.url, target: "_blank" %></li>
-  <%= link_to "Edit", edit_merchant_path(current_user, merchant) %>
-  <%= link_to "Delete", merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <li class="collection-item avatar">
+    <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
+  <p><%= link_to "Edit", edit_merchant_path(current_user, merchant) %>
+  <%= link_to "Delete", merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %></p>
+  </li>
 <% end %>
-</ul>
+  </ul>
+</div>
 
 <p><%= link_to "New Merchant", new_merchant_path(current_user) %></p>
 
