@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <nav class="navbar-fixed" role="navigation">
+    <div class="container nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><%= link_to "Home", merchants_path(current_user) %></li>
+          <li><%= link_to "New Merchant", new_merchant_path(current_user) %></li>
+          <li><%= link_to "Favorites", current_favorite_user_path(current_user) %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav>
+<% end %>
