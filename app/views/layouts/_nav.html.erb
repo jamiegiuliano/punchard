@@ -1,6 +1,9 @@
 <% if user_signed_in? %>
   <nav class="navbar-fixed" role="navigation">
     <div class="container nav-wrapper">
+      <a href="#" class="brand-logo right">
+        <%= image_tag("/assets/logo.png", size: "40", class:"center logo_image") %>
+      </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><%= link_to "Home", merchants_path(current_user) %></li>
           <li><%= link_to "New Merchant", new_merchant_path(current_user) %></li>
