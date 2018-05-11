@@ -1,30 +1,17 @@
  @import "materialize";
 
-
  nav {
    background-color: #546476;
  }
 
- .btn-large {
+ .btn-large, .btn-small {
   background-color: transparent;
   border: 2px solid #86878C;
   color: #86878C;
   border-radius: 5%;
  }
 
- .btn-large:hover {
-   background-color: #86878C;
-   color: white;
- }
-
- .btn-small {
-  background-color: transparent;
-  border: 2px solid #86878C;
-  color: #86878C;
-  border-radius: 5%;
- }
-
- .btn-small:hover {
+ .btn-large:hover, .btn-small:hover {
    background-color: #86878C;
    color: white;
  }
