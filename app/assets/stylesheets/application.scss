@@ -1,19 +1,29 @@
  @import "materialize";
 
+
  nav {
    background-color: #546476;
  }
 
  .btn-large {
-  background-color: grey;
+  background-color: transparent;
+  border: 2px solid darkgrey;
+  color: darkgrey;
+  border-radius: 5%;
  }
 
  .btn-large:hover {
-   background-color: #E7EAEC
+   background-color: darkgrey;
+   color: white;
+ }
+
+ .btn-large:visited {
+   background-color: black;
+   color: white;
  }
 
  .logo_text {
-   color: grey;
+   color: darkgrey;
    align-items: center;
  }
 
@@ -30,3 +40,13 @@
   align-items:center;
   justify-content:center;
  }
+
+/*
+body {
+  background: linear-gradient(
+  grey 30%,
+  white 100%
+  );
+  background-repeat: no-repeat;
+}
+*/
