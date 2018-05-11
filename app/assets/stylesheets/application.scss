@@ -17,8 +17,15 @@
    color: white;
  }
 
- .btn-large:visited {
-   background-color: black;
+ .btn-small {
+  background-color: transparent;
+  border: 2px solid #86878C;
+  color: #86878C;
+  border-radius: 5%;
+ }
+
+ .btn-small:hover {
+   background-color: #86878C;
    color: white;
  }
 

@@ -6,7 +6,7 @@
   Filter by location:
   <%= form_tag(merchants_path(current_user), method: "get") do %>
     <%= select_tag "location", options_for_select(Merchant.distinct.pluck(:location)), include_blank: true %>
-    <%= submit_tag "Filter" %>
+    <%= submit_tag "Filter", class: "btn-small" %>
   <% end %>
 <% end %>
 </div>
@@ -18,8 +18,8 @@
   <li class="collection-item avatar">
     <%= image_tag(merchant.image, class:"circle")%>
     <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
-  <p><%= link_to "Edit", edit_merchant_path(current_user, merchant) %>
-  <%= link_to "Delete", merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %></p>
+  <p><%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
+  <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %></p>
   </li>
 <% end %>
   </ul>
