@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   root 'static#welcome'
 
+  get '/about', to: 'static#about'
+
 end
