@@ -1,10 +1,10 @@
 <div class="center favorites">
-<h1>Your Most Visited Merchant(s)!</h1>
+  <h1>Your Most Visited Merchant(s)!</h1>
 
-<% @favorite.each do |merchant| %>
-  <%= image_tag(merchant.image, class:"circle")%><br />
-  Name: <%= link_to merchant.name, merchant.link.url, target: "_blank" %><br />
-  Location: <%= merchant.location %><br />
-  Total Stars: <%= merchant.star_count %><br />
-<% end %>
+  <% @favorite.each do |merchant| %>
+    <%= image_tag(merchant.image, class:"circle")%><br />
+    Name: <%= link_to merchant.name, merchant.link.url, target: "_blank" %><br />
+    Location: <%= merchant.location %><br />
+    Total Stars: <%= merchant.star_count %><br />
+  <% end %>
 </div>
