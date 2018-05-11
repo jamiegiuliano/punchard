@@ -1,4 +1,8 @@
-<h2><%= current_user.name %>'s Loyalty Programs</h2>
+  <% if !current_user.name.blank? %>
+    <h2><%= current_user.name %>'s Loyalty Programs</h2>
+  <% else %>
+    <h2><%= current_user.email[/[^@]+/] %>'s Loyalty Programs</h2>
+  <% end %>
 <br />
 
 <div class="input-field">
