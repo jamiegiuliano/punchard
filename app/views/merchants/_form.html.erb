@@ -1,3 +1,4 @@
+<div class="form">
 <%= form_for(merchant) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -12,5 +13,6 @@
     <%= link_builder.text_field :url %>
   <% end %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn-small" %>
 <% end %>
+</div>
