@@ -1,7 +1,7 @@
  @import "materialize";
 
  .logo {
-   background-image:url('<%= asset_path("logo.png") %> ');
+   background-image:asset-url('<%= asset_path("logo.png") %> ');
  }
 
  nav {
