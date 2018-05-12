@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <nav class="navbar-fixed" role="navigation">
     <div class="container nav-wrapper">
-      <a href="#" class="brand-logo right">
-        <%= image_tag("/assets/logo.png", size: "40", class:"center logo_image") %>
+      <a href="#" class="brand-logo right logo">
+        <%= image_tag("/assets/logo.png", size: "40", class:"center logo_image", alt: "Logo Image") %>
       </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><%= link_to '<i class="material-icons">home</i>'.html_safe, merchants_path(current_user) %></li>

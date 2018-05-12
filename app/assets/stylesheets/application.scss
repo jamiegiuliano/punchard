@@ -1,5 +1,9 @@
  @import "materialize";
 
+ .logo {
+   background-image:url('<%= asset_path("logo.png") %> ');
+ }
+
  nav {
    background-color: #546476;
  }
