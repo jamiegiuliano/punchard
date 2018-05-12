@@ -12,4 +12,16 @@
       </ul>
     </div>
   </nav>
+<% else %>
+<nav class="navbar-fixed" role="navigation">
+  <div class="container nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><%= link_to 'Welcome', root_path, method: :get %></li>
+        <li><%= link_to 'About', about_path, method: :get %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path, method: :get %></li>
+        <li><%= link_to 'Sign In', new_user_session_path, method: :get %></li>
+    </ul>
+  </div>
+</nav>
+
 <% end %>
