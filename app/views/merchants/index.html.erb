@@ -10,7 +10,7 @@
   Filter by location:
   <br></br>
   <%= form_tag(merchants_path(current_user), method: "get") do %>
-    <%= select_tag "location", options_for_select(Merchant.distinct.pluck(:location)), include_blank: true %>
+    <%= select_tag "location", options_for_select(current_user.merchants.distinct.pluck(:location)), include_blank: true %>
     <%= submit_tag "Filter", class: "btn-small" %>
   <% end %>
 <% end %>
