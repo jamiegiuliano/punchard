@@ -1,8 +1,9 @@
 Rails.application.configure do
 
-  config.serve_static_assets = true
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.digest = true
+  config.serve_static_files = false
+  config.assets.compile = false
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
