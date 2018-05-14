@@ -1,6 +1,6 @@
 {
   "name": "punchcard",
-  "private": true,
+  "private": false,
   "dependencies": {},
   "version": "1.0.0",
   "description": "Rails app",
