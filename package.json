@@ -7,5 +7,9 @@
   "main": "index.js",
   "repository": "https://github.com/jamiegiuliano/punchcard.git",
   "author": "Jamie Giuliano <https://github.com/jamiegiuliano>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.8.3",
+    "webpack-dev-server": "^3.1.4"
+  }
 }
