@@ -1,5 +1,11 @@
 {
-  "name": "punchard",
+  "name": "punchcard",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "description": "Rails app",
+  "main": "index.js",
+  "repository": "https://github.com/jamiegiuliano/punchcard.git",
+  "author": "Jamie Giuliano <https://github.com/jamiegiuliano>",
+  "license": "MIT"
 }
