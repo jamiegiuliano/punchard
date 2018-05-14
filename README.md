@@ -6,10 +6,11 @@ Punchcard is the client-side tracker for loyalty programs connected to Square.
 
 ## Usage
 
-After following the installation instructions below, enter `localhost:3000` into
-your browser. Sign up with a valid email and password or through Github. Once
-logged in, copy and paste your SquareUp.com links into the 'New Merchant' form.
-Add as many links as you'd like! (One per Merchant)
+Visit https://square-punchcard.herokuapp.com/ or follow the installation
+instructions below, enter `localhost:3000` into your browser. Sign up with a
+valid email and password or through Github. Once logged in, copy and paste
+your SquareUp.com links into the 'New Merchant' form. Add as many links as
+you'd like! (One per Merchant for now).
 
 ## Installation
 
