@@ -1,5 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_merchant, only: [:edit, :update, :destroy]
 
   def index
     if !params[:location].blank?
@@ -24,11 +25,9 @@ class MerchantsController < ApplicationController
   end
 
   def edit
-    @merchant = Merchant.find_by(id: params[:id])
   end
 
   def update
-    @merchant = Merchant.find_by(id: params[:id])
     if @merchant.update(merchant_params)
       redirect_to authenticated_root_path, notice: 'Merchant was successfully updated.'
     else
@@ -42,7 +41,6 @@ class MerchantsController < ApplicationController
   end
 
   def destroy
-    @merchant = Merchant.find_by(id: params[:id])
     name = @merchant.name
 
     @merchant.delete
@@ -56,5 +54,9 @@ class MerchantsController < ApplicationController
 
   def user_merchants
     current_user.merchants
+  end
+
+  def set_merchant
+    @merchant = Merchant.find_by(id: params[:id])
   end
 end
