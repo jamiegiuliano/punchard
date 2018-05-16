@@ -6,7 +6,7 @@
 <br />
 
 <div class="input-field">
-<% if !Merchant.distinct.pluck(:location).empty? %>
+<% if !current_user.merchants.distinct.pluck(:location).empty? %>
   Filter by location:
   <br></br>
   <%= form_tag(merchants_path(current_user), method: "get") do %>

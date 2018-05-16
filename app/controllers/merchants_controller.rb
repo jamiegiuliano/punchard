@@ -1,6 +1,5 @@
 class MerchantsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:new, :edit, :update, :destroy]
 
   def index
     if !params[:location].blank?
@@ -11,7 +10,7 @@ class MerchantsController < ApplicationController
   end
 
   def new
-    @merchant = @user.merchants.build
+    @merchant = user_merchants.build
   end
 
   def create
@@ -51,12 +50,8 @@ class MerchantsController < ApplicationController
   end
 
   private
-  def set_user
-    @user = current_user
-  end
-
   def merchant_params
-    params.require(:merchant).permit(:user_id, :name, :location, link_attributes: [:url])
+    params.require(:merchant).permit(:name, :location, link_attributes: [:url])
   end
 
   def user_merchants
