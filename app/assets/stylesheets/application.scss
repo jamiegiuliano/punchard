@@ -60,3 +60,12 @@
 .about p {
   font-size: 18px;
 }
+
+.error_description {
+  color: red;
+}
+
+.field_with_errors input#merchant_name, .field_with_errors input#merchant_location, .field_with_errors input#merchant_link_attributes_url {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}
