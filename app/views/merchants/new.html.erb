@@ -1,3 +1,1 @@
-<%= render 'layouts/error_messages', object: @merchant %>
-
-<%= render 'form', merchant: @merchant, link: @merchant.build_link %>
+<%= render 'form', merchant: @merchant, link: (@merchant.link || @merchant.build_link) %>

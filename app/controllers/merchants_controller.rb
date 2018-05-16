@@ -16,7 +16,7 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = user_merchants.build(merchant_params)
-    if !@merchant.link.url.empty? && @merchant.save
+    if @merchant.save
       Scraper.scrape_image(@merchant)
       redirect_to authenticated_root_path
     else

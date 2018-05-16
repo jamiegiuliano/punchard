@@ -1,5 +1,11 @@
-<% if object.errors.any? %>
-  <% object.errors.full_messages.each do |msg| %>
-    <p><%= msg %></p>
-  <% end %>
-<% end %>
+<div class="container error_description">
+  <table>
+    <tr>
+      <% if object.errors.any? %>
+        <% object.errors.full_messages.each do |msg| %>
+          <th><%= msg %></th>
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+</div>

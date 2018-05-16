@@ -6,7 +6,7 @@ class Link < ApplicationRecord
 
   def url_from_square
     if !url.include?("squareup.com/")
-      errors.add('', "must be from squareup.com")
+      errors[:url] << ("Must be from squareup.com")
     end
   end
 end
