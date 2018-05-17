@@ -5,7 +5,7 @@
  }
 
  nav {
-   background-color: #546476;
+   margin-bottom: 40px;
  }
 
  .btn-large, .btn-small {
@@ -40,8 +40,12 @@
   padding-top: 50px;
  }
 
-.navbar-fixed {
-   background-color: #86878C;
+span.navbar-logo-text, .navbar-text li a {
+  color: black;
+ }
+
+ .navbar-text li a {
+   margin-right: 20px;
  }
 
  .form {
@@ -72,7 +76,7 @@
 
 .black-text {
   font-style: medium;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .loyalty-count {
@@ -83,7 +87,19 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ECE9E9;
     margin: 1em 0;
     padding: 0;
+}
+
+.vLine1{
+  border-left:1px solid #ECE9E9;
+  border-right:1px solid #ECE9E9;
+  height:55px;
+  position:absolute;
+  margin-top: 5px;
+    }​
+
+.index-text {
+  margin-bottom: 30px;
 }

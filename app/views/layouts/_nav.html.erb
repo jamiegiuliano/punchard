@@ -1,21 +1,23 @@
 <% if user_signed_in? %>
-  <nav class="navbar-fixed" role="navigation">
+  <nav class="navbar-fixed transparent z-depth-0" role="navigation">
     <div class="container nav-wrapper">
       <a href="#" class="brand-logo right logo">
         <%= image_tag("/assets/logo.png", size: "40", class:"center logo_image", alt: "Logo Image") %>
+        <span class="navbar-logo-text">Punchcard</span>
       </a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <ul id="nav-mobile" class="left hide-on-med-and-down navbar-text">
           <li><%= link_to '<i class="material-icons">home</i>'.html_safe, merchants_path(current_user) %></li>
           <li><%= link_to "New Merchant", new_merchant_path(current_user) %></li>
           <li><%= link_to "Favorites", current_favorite_user_path(current_user) %></li>
+          <li><div class="vLine1"></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </nav>
 <% else %>
-  <nav class="navbar-fixed" role="navigation">
+  <nav class="navbar-fixed transparent z-depth-0" role="navigation">
     <div class="container nav-wrapper">
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <ul id="nav-mobile" class="left hide-on-med-and-down navbar-text">
           <li><%= link_to 'Welcome', root_path, method: :get %></li>
           <li><%= link_to 'About', about_path, method: :get %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path, method: :get %></li>
