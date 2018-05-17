@@ -1,33 +1,57 @@
-<% if !current_user.name.blank? %>
-  <h3><%= current_user.name %>'s Loyalty Programs</h3>
-<% else %>
-  <h3><%= current_user.email[/[^@]+/] %>'s Loyalty Programs</h3>
-<% end %>
-<br />
+<div class="row">
+  <div class="col s12 m4 l3 left">
+    <div class="card-panel grey lighten-5 z-depth-1">
+      <div class="row valign-wrapper">
+        <div class="col s7">
+          <% if current_user.uid.blank? %>
+            <img src="/assets/blank-uid.png" alt="" class="circle responsive-img">
+          <% else %>
+            <img src="https://avatars1.githubusercontent.com/u/<%= current_user.uid %>?s=460&v=4" alt="" class="circle responsive-img">
+          <% end %>
+        </div>
+          <div class="col s5 right">
+            <span class="black-text">
+              <% if !current_user.name.blank? %>
+                <%= current_user.name %>
+              <% else %>
+                <%= current_user.email[/[^@]+/] %>
+              <% end %>
+            </span>
+          </div>
+        </div>
+        <hr/>
+        <div class="card-action loyalty-count center-align">
+          Loyalty Programs: <%= current_user.merchants.count %>
+        </div>
+      </div>
+    </div>
 
+<!-- Filter -->
+<div class="col s12 m8 l9">
 <div class="input-field">
-<% if !current_user.merchants.distinct.pluck(:location).empty? %>
-Filter by location:
-<br></br>
-<%= form_tag(merchants_path(current_user), method: "get") do %>
-  <%= select_tag "location", options_for_select(current_user.merchants.distinct.pluck(:location)), include_blank: true %>
-  <%= submit_tag "Filter", class: "btn-small" %>
-<% end %>
-<% end %>
+  <% if !current_user.merchants.distinct.pluck(:location).empty? %>
+    Filter by location:
+    <br></br>
+    <%= form_tag(merchants_path(current_user), method: "get") do %>
+      <%= select_tag "location", options_for_select(current_user.merchants.distinct.pluck(:location)), include_blank: true %>
+      <%= submit_tag "Filter", class: "btn-small" %>
+    <% end %>
+  <% end %>
 </div>
 <br />
 
-<div class="col s6">
-<ul class="collection">
-<% @merchants.each do |merchant| %>
-<li class="collection-item avatar">
-  <%= image_tag(merchant.image, class:"circle")%>
-  <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
-  <p>
-    <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
-    <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
-  </p>
-</li>
-<% end %>
-</ul>
+<!-- User's Merchants -->
+  <ul class="collection">
+    <% @merchants.each do |merchant| %>
+      <li class="collection-item avatar">
+        <%= image_tag(merchant.image, class:"circle")%>
+        <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
+        <p>
+          <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
+          <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+</div>
 </div>

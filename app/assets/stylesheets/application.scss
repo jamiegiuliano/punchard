@@ -69,3 +69,21 @@
   border-bottom: 1px solid red;
   box-shadow: 0 1px 0 0 red;
 }
+
+.black-text {
+  font-style: medium;
+  font-size: 16px;
+}
+
+.loyalty-count {
+  font-size: 14px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
