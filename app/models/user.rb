@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:github]
 
-  has_many :merchants
+  has_many :merchants, dependent: :destroy
   has_many :links, through: :merchants
 
   def self.from_omniauth(auth)

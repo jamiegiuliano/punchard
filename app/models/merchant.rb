@@ -1,6 +1,6 @@
 class Merchant < ApplicationRecord
   belongs_to :user
-  has_one :link
+  has_one :link, dependent: :destroy
 
   accepts_nested_attributes_for(:link, update_only: true)
 
