@@ -48,7 +48,7 @@ class MerchantsController < ApplicationController
 
   private
   def merchant_params
-    params.require(:merchant).permit(:name, :location, link_attributes: [:url])
+    params.require(:merchant).permit(:name, :uid, :location, link_attributes: [:url])
   end
 
   def user_merchants

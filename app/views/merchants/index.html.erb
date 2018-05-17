@@ -1,33 +1,33 @@
-  <% if !current_user.name.blank? %>
-    <h2><%= current_user.name %>'s Loyalty Programs</h2>
-  <% else %>
-    <h2><%= current_user.email[/[^@]+/] %>'s Loyalty Programs</h2>
-  <% end %>
+<% if !current_user.name.blank? %>
+  <h3><%= current_user.name %>'s Loyalty Programs</h3>
+<% else %>
+  <h3><%= current_user.email[/[^@]+/] %>'s Loyalty Programs</h3>
+<% end %>
 <br />
 
 <div class="input-field">
 <% if !current_user.merchants.distinct.pluck(:location).empty? %>
-  Filter by location:
-  <br></br>
-  <%= form_tag(merchants_path(current_user), method: "get") do %>
-    <%= select_tag "location", options_for_select(current_user.merchants.distinct.pluck(:location)), include_blank: true %>
-    <%= submit_tag "Filter", class: "btn-small" %>
-  <% end %>
+Filter by location:
+<br></br>
+<%= form_tag(merchants_path(current_user), method: "get") do %>
+  <%= select_tag "location", options_for_select(current_user.merchants.distinct.pluck(:location)), include_blank: true %>
+  <%= submit_tag "Filter", class: "btn-small" %>
+<% end %>
 <% end %>
 </div>
 <br />
 
 <div class="col s6">
-  <ul class="collection">
+<ul class="collection">
 <% @merchants.each do |merchant| %>
-  <li class="collection-item avatar">
-    <%= image_tag(merchant.image, class:"circle")%>
-    <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
-    <p>
-      <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
-      <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
-    </p>
-  </li>
+<li class="collection-item avatar">
+  <%= image_tag(merchant.image, class:"circle")%>
+  <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
+  <p>
+    <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
+    <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
+  </p>
+</li>
 <% end %>
-  </ul>
+</ul>
 </div>
