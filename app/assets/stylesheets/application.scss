@@ -1,9 +1,8 @@
  @import "materialize";
 
   .application-body {
-    background-color: rgba(9, 118, 220, 0.05);
+    background-color: rgba(20, 200, 53, 0.15);
     height: 425px;
-    transition: opacity 2s linear;
   }
 
  .logo {
@@ -23,12 +22,17 @@
 
  .btn-small {
    background-color: transparent;
-   border: 2px solid black;
-   color: black;
+   border: 1.3px solid #666666;
+   color: #666666;
    border-radius: 5%;
  }
 
- .btn-large:hover, .btn-small:hover {
+ .btn-small:hover {
+   background-color: #666666;
+   color: white;
+ }
+
+ .btn-large:hover {
    background-color: #86878C;
    color: white;
  }
@@ -70,8 +74,8 @@ span.navbar-logo-text, .navbar-text li a {
   color: #86878C;
 }
 
-.about h3 {
-  text-decoration: underline;
+.logo-container {
+  padding-top: 30px;
 }
 
 .about p {
@@ -115,4 +119,8 @@ hr {
 
 .index-text {
   margin-bottom: 30px;
+}
+
+.favorites {
+  padding-top: 20px;
 }
