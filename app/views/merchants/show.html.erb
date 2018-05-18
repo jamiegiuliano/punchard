@@ -1,9 +1,5 @@
 <div class="container center merchant-show">
   <div class="row">
-    <h3><%= @merchant.name %></h3>
-    <%= image_tag(@merchant.image, class:"circle")%><br />
-    <%= link_to 'Loyalty Status', @merchant.link.url, target: "_blank" %><br />
-    Location: <%= @merchant.location %><br />
-    Total Stars: <%= @merchant.star_count %><br />
+    <%= render 'show', merchant: @merchant %>
   </div>
 </div>

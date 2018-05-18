@@ -1,10 +1,7 @@
 <div class="center favorites">
   <h3>Your Favorite(s)</h3>
+  <br />
 
-  <% @favorite.each do |merchant| %>
-    <%= image_tag(merchant.image, class:"circle")%><br />
-    Name: <%= link_to merchant.name, merchant.link.url, target: "_blank" %><br />
-    Location: <%= merchant.location %><br />
-    Total Stars: <%= merchant.star_count %><br />
-  <% end %>
+<%= render collection: @favorite, partial: 'show', as: :merchant %>
+
 </div>
