@@ -35,6 +35,10 @@ class MerchantsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def favorite
     @favorite = user_merchants.current_favorite(user_merchants.count_stars)
   end
