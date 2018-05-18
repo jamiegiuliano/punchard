@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_merchant, only: [:edit, :update, :destroy]
+  before_action :set_merchant, only: [:edit, :update, :show, :destroy]
 
   def index
     if !params[:location].blank?
@@ -36,7 +36,9 @@ class MerchantsController < ApplicationController
   end
 
   def show
-
+    if !current_user.merchants.include?(@merchant)
+      redirect_to merchants_path(current_user), notice: "Merchant not found."
+    end
   end
 
   def favorite
