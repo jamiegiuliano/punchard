@@ -53,6 +53,7 @@
           <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_merchant_path(current_user, merchant) %>
           <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>
         </p>
+        <a href="<%= merchant_path(current_user, merchant) %>" class="secondary-content"><i class="material-icons">pageview</i></a>
       </li>
     <% end %>
   </ul>
