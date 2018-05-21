@@ -49,7 +49,7 @@ class MerchantsController < ApplicationController
     name = @merchant.name
 
     @merchant.destroy
-    redirect_to merchants_path(current_user), notice: "#{name} deleted successfully."
+    redirect_to user_merchants_path(current_user), notice: "#{name} deleted successfully."
   end
 
   private
