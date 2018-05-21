@@ -1,7 +1,7 @@
 <%= render 'layouts/error_messages', object: merchant %>
 
 <div class="form">
-<%= form_for(merchant) do |f| %>
+<%= form_for([current_user, merchant]) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Sterling Coffee Roasters" %>
 
