@@ -3,16 +3,14 @@
 <div class="form">
 <%= form_for(merchant) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "Sterling Coffee Roasters" %>
 
   <%= f.label :location %>
   <%= f.text_field :location, placeholder: "Costa Mesa, CA" %>
 
-  <%#= f.select :location, options_for_select(Merchant.distinct.pluck(:location)), include_blank: true %>
-
   <%= f.fields_for :link, link do |link_builder| %>
     <%= link_builder.label :url, "URL:" %>
-    <%= link_builder.text_field :url %>
+    <%= link_builder.text_field :url, placeholder: "https://squareup.com/" %>
   <% end %>
 
   <%= f.submit class: "btn-small" %>

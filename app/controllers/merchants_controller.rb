@@ -36,7 +36,7 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    if !current_user.merchants.include?(@merchant)
+    if !user_merchants.include?(@merchant)
       redirect_to merchants_path(current_user), notice: "Merchant not found."
     end
   end
