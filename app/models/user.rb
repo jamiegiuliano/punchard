@@ -3,6 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:github]
 
+  validates :password, presence: true
+
   has_many :merchants, dependent: :destroy
   has_many :links, through: :merchants
 
