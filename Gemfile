@@ -38,6 +38,8 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
 
+gem 'sprockets', '~> 3.7', '>= 3.7.2'
+
 gem 'jquery-rails'
 
 group :development, :test do
