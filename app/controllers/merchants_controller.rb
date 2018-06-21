@@ -42,6 +42,7 @@ class MerchantsController < ApplicationController
   end
 
   def favorite
+    Scraper.scrape_square(@merchant)
     @favorite = user_merchants.current_favorite(user_merchants.count_stars)
   end
 
