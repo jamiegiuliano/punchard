@@ -42,6 +42,7 @@ class MerchantsController < ApplicationController
   end
 
   def favorite
+    # need to actually scrape each merchant here to get their up-to-date star count.
     @favorite = user_merchants.current_favorite(user_merchants.count_stars)
     Scraper.scrape_square(@favorite.first)
   end
