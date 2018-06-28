@@ -1,6 +1,14 @@
-<h4><%= merchant.name %></h4>
-
 <%= image_tag(merchant.image, class:"circle")%><br />
-<%= link_to 'Loyalty Status', merchant.links.last.url, target: "_blank" %><br />
+<h4><%= merchant.name %></h4>
 Location: <%= merchant.location %><br />
 Total Stars: <%= merchant.star_count %><br />
+
+<% merchant.links.each do |link| %>
+  <% if link.category.name == 'Loyalty Profile' %>
+    <h5>Loyalty Profile</h5>
+    <%= link_to 'Loyalty Profile', link.url, target: '_blank' %><br />
+  <% else link.category.name == 'Reward' %>
+    <h5>Rewards</h5>
+    <%= link_to 'Reward', link.url, target: '_blank' %><br />
+  <% end %>
+<% end %>

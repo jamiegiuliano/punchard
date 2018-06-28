@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  belongs_to :merchant
+  belongs_to :link
 end

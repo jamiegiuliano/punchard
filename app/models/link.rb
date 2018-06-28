@@ -2,6 +2,8 @@ class Link < ApplicationRecord
   belongs_to :merchant
   has_one :category
 
+  accepts_nested_attributes_for(:category)
+
   validates :url, presence: true
   validate :url_from_square
 

@@ -12,10 +12,10 @@ class MerchantsController < ApplicationController
 
   def new
     @merchant = user_merchants.build
+    @link = @merchant.links.build
   end
 
   def create
-    binding.pry
     @merchant = user_merchants.build(merchant_params)
     if @merchant.save
       Scraper.scrape_square(@merchant)
@@ -57,7 +57,7 @@ class MerchantsController < ApplicationController
 
   private
   def merchant_params
-    params.require(:merchant).permit(:name, :uid, :location, categories_attributes: [:name], links_attributes: [:url])
+    params.require(:merchant).permit(:name, :uid, :location, links_attributes: [:url, category_attributes: [:name]])
   end
 
   def user_merchants

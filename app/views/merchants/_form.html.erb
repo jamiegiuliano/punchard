@@ -8,16 +8,15 @@
   <%= f.label :location %>
   <%= f.text_field :location, placeholder: "Costa Mesa, CA" %>
 
-  <%= f.label "Category" %>
-  <div class="input-field">
-  <%= f.fields_for :categories, merchant.categories.build do |c_builder| %>
-    <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
-  <% end %>
-  </div>
-
   <%= f.fields_for :links, link do |link_builder| %>
     <%= link_builder.label :url, "URL:" %>
     <%= link_builder.text_field :url, placeholder: "https://squareup.com/" %>
+
+    <div class="input-field">
+    <%= link_builder.fields_for :category, category do |c_builder| %>
+      <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
+    <% end %>
+    </div>
   <% end %>
 
   <%= f.submit class: "btn-small" %>
