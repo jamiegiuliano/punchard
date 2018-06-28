@@ -4,6 +4,7 @@ class Merchant < ApplicationRecord
   has_many :categories
 
   accepts_nested_attributes_for(:links)
+  accepts_nested_attributes_for(:categories)
 
   validates :name, presence: true
   validates :location, presence: true

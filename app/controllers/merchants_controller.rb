@@ -15,10 +15,10 @@ class MerchantsController < ApplicationController
   end
 
   def create
+    binding.pry
     @merchant = user_merchants.build(merchant_params)
     if @merchant.save
       Scraper.scrape_square(@merchant)
-      binding.pry
       redirect_to authenticated_root_path
     else
       render :new
@@ -57,7 +57,7 @@ class MerchantsController < ApplicationController
 
   private
   def merchant_params
-    params.require(:merchant).permit(:name, :uid, :location,  links_attributes: [:url])
+    params.require(:merchant).permit(:name, :uid, :location, categories_attributes: [:name], links_attributes: [:url])
   end
 
   def user_merchants
