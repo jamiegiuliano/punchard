@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :merchant
+  has_one :category
 
   validates :url, presence: true
   validate :url_from_square
