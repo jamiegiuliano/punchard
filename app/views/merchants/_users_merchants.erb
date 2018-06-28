@@ -1,6 +1,6 @@
 <li class="collection-item avatar">
   <%= image_tag(merchant.image, class:"circle")%>
-  <span class="title"><%= link_to merchant.name, merchant.link.url, target: "_blank" %></span>
+  <span class="title"><%= link_to merchant.name, merchant.links.last.url, target: "_blank" %></span>
   <p>
     <%= link_to '<i class="material-icons">edit</i>'.html_safe, edit_user_merchant_path(current_user, merchant) %>
     <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, user_merchant_path(current_user, merchant), method: :delete, data: { confirm: 'Are you sure?' }  %>

@@ -8,7 +8,7 @@
   <%= f.label :location %>
   <%= f.text_field :location, placeholder: "Costa Mesa, CA" %>
 
-  <%= f.fields_for :link, link do |link_builder| %>
+  <%= f.fields_for :links, link do |link_builder| %>
     <%= link_builder.label :url, "URL:" %>
     <%= link_builder.text_field :url, placeholder: "https://squareup.com/" %>
   <% end %>
