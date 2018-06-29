@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
       resources :merchants do
-        resources :links, only: [:create, :show] 
+        resources :links, only: [:create, :edit, :update, :destroy] 
       end
       get '/current_favorite', to: 'merchants#favorite'
   end

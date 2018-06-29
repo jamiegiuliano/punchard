@@ -1,13 +1,20 @@
 class LinksController < ApplicationController
   def create
-    binding.pry
     @link = Link.new(link_params)
     @link.save
     redirect_to user_merchant_path(current_user, current_merchant)
   end
 
-  def show
+  def edit
+  end
 
+  def update
+  end
+
+  def destroy
+    @link = Link.find_by(id: params[:id])
+    @link.destroy
+    redirect_to user_merchant_path(current_user, current_merchant)
   end
 
   private
