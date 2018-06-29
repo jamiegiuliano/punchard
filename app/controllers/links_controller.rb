@@ -1,8 +1,9 @@
 class LinksController < ApplicationController
   def create
+    binding.pry
     @link = Link.new(link_params)
     @link.save
-    redirect_to user_merchant_path(current_merchant)
+    redirect_to user_merchant_path(current_user, current_merchant)
   end
 
   def show
@@ -11,7 +12,7 @@ class LinksController < ApplicationController
 
   private
   def link_params
-    params.require(:link).permit(:url, :merchant_id, category_attributes: ['0' => [:name]])
+    params.require(:link).permit(:url, :merchant_id, category_attributes: [:name])
   end
 
   def current_merchant

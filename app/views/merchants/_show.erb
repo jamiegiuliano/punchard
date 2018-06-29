@@ -23,18 +23,21 @@ Total Stars: <%= merchant.star_count %><br />
 
 <div class="link_form right">
 <strong>Add another link!</strong>
-<%#= form_for [merchant, merchant.links.build] do |f| %>
-  <%#= f.label :url, "URL:" %>
-  <%#= f.text_field :url, placeholder: "https://squareup.com/" %>
+
+<%= form_for [current_user, merchant, merchant.links.build] do |f| %>
+  <%= f.label :url, "URL:" %>
+  <%= f.text_field :url, placeholder: "https://squareup.com/" %>
+
+  <%= f.hidden_field :merchant_id %>
 
   <div class="input-field">
-  <%#= f.fields_for :category, [merchant.links.build.build_category] do |c_builder| %>
-    <%#= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
-  <%# end %>
+  <%= f.fields_for :category, merchant.links.build.build_category do |c_builder| %>
+    <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
+  <% end %>
   </div>
 
-<%#= f.submit class: "btn-small" %>
-<%# end %>
+<%= f.submit "Create Link", class: "btn-small" %>
+<% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
