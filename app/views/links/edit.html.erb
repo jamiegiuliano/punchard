@@ -1,0 +1,24 @@
+<%= render 'layouts/error_messages', object: @link %>
+
+<div class="form">
+<%= form_for [current_user, @merchant, @link] do |f| %>
+  <%= f.label :url, "URL:" %>
+  <%= f.text_field :url, placeholder: "https://squareup.com/" %>
+
+  <%= f.hidden_field :merchant_id %>
+
+  <div class="input-field">
+  <%= f.fields_for :category, @link.category do |c_builder| %>
+    <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
+  <% end %>
+  </div>
+
+<%= f.submit "Edit Link", class: "btn-small" %>
+<% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+ $('select').material_select();
+});
+</script>

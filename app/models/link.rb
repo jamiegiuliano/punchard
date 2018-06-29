@@ -1,5 +1,5 @@
 class Link < ApplicationRecord
-  has_one :category
+  has_one :category, dependent: :destroy
 
   accepts_nested_attributes_for(:category)
 
