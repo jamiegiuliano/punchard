@@ -16,6 +16,7 @@ class MerchantsController < ApplicationController
   end
 
   def create
+    binding.pry
     @merchant = user_merchants.build(merchant_params)
     if @merchant.save
       Scraper.scrape_square(@merchant)

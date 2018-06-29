@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users, only: [] do
-      resources :merchants
+      resources :merchants do
+        resources :links, only: [:create, :show] 
+      end
       get '/current_favorite', to: 'merchants#favorite'
   end
+
 
   authenticated :user do
     root to: 'merchants#index', as: :authenticated_root
@@ -13,5 +16,7 @@ Rails.application.routes.draw do
   root 'static#welcome'
 
   get '/about', to: 'static#about'
+
+
 
 end

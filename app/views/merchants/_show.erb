@@ -1,14 +1,44 @@
+<div class="left">
 <%= image_tag(merchant.image, class:"circle")%><br />
 <h4><%= merchant.name %></h4>
 Location: <%= merchant.location %><br />
 Total Stars: <%= merchant.star_count %><br />
 
+
+<div class="merchant_links">
 <% merchant.links.each do |link| %>
   <% if link.category.name == 'Loyalty Profile' %>
     <h5>Loyalty Profile</h5>
     <%= link_to 'Loyalty Profile', link.url, target: '_blank' %><br />
-  <% else link.category.name == 'Reward' %>
+  <% elsif link.category.name == 'Reward' %>
     <h5>Rewards</h5>
     <%= link_to 'Reward', link.url, target: '_blank' %><br />
+  <% else link.category.name == 'Receipt' %>
+    <h5>Receipt</h5>
+    <%= link_to link.created_at.strftime("%a, %d %b %Y"), link.url, target: '_blank' %><br />
   <% end %>
 <% end %>
+</div>
+</div>
+
+<div class="link_form right">
+<strong>Add another link!</strong>
+<%#= form_for [merchant, merchant.links.build] do |f| %>
+  <%#= f.label :url, "URL:" %>
+  <%#= f.text_field :url, placeholder: "https://squareup.com/" %>
+
+  <div class="input-field">
+  <%#= f.fields_for :category, [merchant.links.build.build_category] do |c_builder| %>
+    <%#= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
+  <%# end %>
+  </div>
+
+<%#= f.submit class: "btn-small" %>
+<%# end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+ $('select').material_select();
+});
+</script>

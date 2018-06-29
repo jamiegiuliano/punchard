@@ -13,7 +13,7 @@
     <%= link_builder.text_field :url, placeholder: "https://squareup.com/" %>
 
     <div class="input-field">
-    <%= link_builder.fields_for :category, category do |c_builder| %>
+    <%= link_builder.fields_for :category, merchant.links.build.build_category do |c_builder| %>
       <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
     <% end %>
     </div>
@@ -23,7 +23,7 @@
 <% end %>
 </div>
 
- <script type="text/javascript" charset="utf-8">
+<script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
   $('select').material_select();
 });
