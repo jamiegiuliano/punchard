@@ -36,7 +36,7 @@
   <% if !current_user.merchants.distinct.pluck(:location).empty? %>
     Filter by location:
     <br></br>
-    <%= render 'filter' %>
+    <%= render 'merchants/filter' %>
   <% end %>
 </div>
 <br />
@@ -44,7 +44,7 @@
 <!-- User's Merchants -->
   <ul class="collection">
     <%= link_to "Show Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
-    <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
+    <%= render collection: @merchants, partial: 'merchants/users_merchants', as: :merchant %>
   </ul>
     </div>
   </div>
