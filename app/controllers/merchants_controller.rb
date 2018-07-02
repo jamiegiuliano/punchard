@@ -4,6 +4,7 @@ class MerchantsController < ApplicationController
 
   def index
     @merchants = user_merchants
+    render layout: false
   end
 
   def new

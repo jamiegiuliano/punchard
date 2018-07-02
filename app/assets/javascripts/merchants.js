@@ -9,6 +9,6 @@
 /////// AJAX Calls //////
 const getMerchantList = function(url){
   $.get(url).done(function(response) {
-    alert("You've made it!");
+    $('.collection').append(response);
   });
 }
