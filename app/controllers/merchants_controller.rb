@@ -3,6 +3,7 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: [:edit, :update, :show, :destroy]
 
   def index
+    @merchants = user_merchants
   end
 
   def new

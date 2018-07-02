@@ -6,7 +6,7 @@
         <span class="navbar-logo-text">Punchcard</span>
       </a>
       <ul id="nav-mobile" class="left hide-on-med-and-down navbar-text">
-          <li><%= link_to '<i class="material-icons">home</i>'.html_safe, user_merchants_path(current_user) %></li>
+          <li><%= link_to '<i class="material-icons">home</i>'.html_safe, user_path(current_user) %></li>
           <li><%= link_to "New Merchant", new_user_merchant_path(current_user) %></li>
           <li><%= link_to "Favorites", user_current_favorite_path(current_user) %></li>
           <li><div class="vLine1"></li>

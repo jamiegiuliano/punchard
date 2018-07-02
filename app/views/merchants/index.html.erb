@@ -1,57 +1,7 @@
-<!-- INDEX PAGE -->
-<div class="index-page">
-
-<!-- User image/info -->
-<div class="row">
-  <div class="col s12 m4 l4 left">
-    <div class="card-panel grey lighten-5 z-depth-1">
-      <div class="row valign-wrapper">
-        <div class="col s7">
-          <% if current_user.uid.blank? %>
-            <img src="/assets/blank-uid.png" alt="" class="circle responsive-img">
-          <% else %>
-            <img src="https://avatars1.githubusercontent.com/u/<%= current_user.uid %>?s=460&v=4" alt="" class="circle responsive-img">
-          <% end %>
-        </div>
-          <div class="col s5 right">
-            <span class="black-text">
-              <% if !current_user.name.blank? %>
-                <%= current_user.name %>
-              <% else %>
-                <%= current_user.email[/[^@]+/] %>
-              <% end %>
-            </span>
-          </div>
-        </div>
-        <hr/>
-        <div class="card-action loyalty-count center-align">
-          Loyalty Programs: <%= current_user.merchants.count %>
-        </div>
-      </div>
-    </div>
-
-<!-- Filter -->
-<div class="col s12 m8 l8">
-<div class="input-field">
-  <% if !current_user.merchants.distinct.pluck(:location).empty? %>
-    Filter by location:
-    <br></br>
-    <%= render 'filter' %>
-  <% end %>
-</div>
-<br />
-
 <!-- User's Merchants -->
   <ul class="collection">
-    <%= link_to "Show Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
     <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
   </ul>
     </div>
   </div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
- $('select').material_select();
-});
-</script>

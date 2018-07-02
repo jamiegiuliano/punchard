@@ -41,14 +41,15 @@
 </div>
 <br />
 
-<!-- User's Merchants -->
+<!-- User's Merchants
   <ul class="collection">
-    <%= link_to "Show Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
-    <%= render collection: @merchants, partial: 'merchants/users_merchants', as: :merchant %>
+    <%#= render collection: @merchants, partial: 'merchants/users_merchants', as: :merchant %>
   </ul>
     </div>
   </div>
 </div>
+-->
+<%= link_to "Show Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
