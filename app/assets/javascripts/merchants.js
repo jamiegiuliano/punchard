@@ -9,6 +9,6 @@ $(function showMerchants() {
 /////// AJAX Calls //////
 const getMerchantList = function(url){
   $.get(url).done(function(response) {
-    $('.all-merchants').html(response);
+    $('.all-merchants li').html(response);
   });
 }

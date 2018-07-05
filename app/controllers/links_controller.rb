@@ -30,7 +30,7 @@ class LinksController < ApplicationController
   end
 
   def current_merchant
-    Merchant.find_by(params[:merchant_id])
+    Merchant.find_by(id: params[:merchant_id])
   end
 
   def set_link
