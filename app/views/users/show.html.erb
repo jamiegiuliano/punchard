@@ -45,9 +45,9 @@
   <ul class="collapsible collection all-merchants">
     <li>
       <% if params["commit"].nil? || params["location"].empty? %>
-        <div class="collapsible-header"><%= link_to "Load Merchants...", user_merchants_path(current_user), class: "js-merchant-index" %></div>
+        <div class="collapsible-header active"><%= link_to "Load Merchants...", user_merchants_path(current_user), class: "js-merchant-index" %></div>
       <% else %>
-      <div class="collapsible-header">Merchants in: <%=params["location"]%></div>
+      <div class="collapsible-header active"><i class="material-icons">store</i>Merchants in: <%=params["location"]%></div>
       <%= render collection: @merchants, partial: 'merchants/users_merchants', as: :merchant %>
   <% end %>
     </li>
