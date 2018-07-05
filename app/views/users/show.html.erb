@@ -42,8 +42,10 @@
 <br />
 
 <!-- User's Merchants -->
-<%= link_to "Show Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
   <ul class="collection">
+    <div class="all-merchants">
+      <%= link_to "View Merchants", user_merchants_path(current_user), class: "js-merchant-index" %>
+    </div>
   </ul>
     </div>
   </div>
