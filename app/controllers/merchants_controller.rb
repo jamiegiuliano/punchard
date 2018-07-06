@@ -3,9 +3,13 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: [:edit, :update, :show, :destroy]
 
   def index
+    #if !params[:location].blank?
+    #  @merchants = current_user.merchants.by_location(params[:location])
+    #else
+    #  @merchants = user_merchants
+    #end
     @merchants = user_merchants
-    #render layout: false
-
+  
     respond_to do |format|
 		  format.html { render :index }
 		  format.json { render json: @merchants }

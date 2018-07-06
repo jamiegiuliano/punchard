@@ -1,4 +1,4 @@
 class MerchantSerializer < ActiveModel::Serializer
-  attributes :name, :location, :star_count, :image
+  attributes :id, :name, :location, :image
   belongs_to :user
 end
