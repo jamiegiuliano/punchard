@@ -40,19 +40,19 @@
      <% if !current_user.merchants.distinct.pluck(:location).empty? %>
        Filter by location:
        <br></br>
-       <%= render 'merchants/filter' %>
+       <%= render 'filter' %>
      <% end %>
    </div>
    <br />
 
    <!-- User's Merchants -->
-     <ul class="collapsible collection all-merchants">
+     <ul class="collection all-merchants">
        <li>
          <% if params["commit"].nil? || params["location"].empty? %>
-           <div class="collapsible-header active"><%= link_to "Load Merchants...", merchants_path, class: "js-merchant-index" %></div>
+           <div class="active"><%= link_to "Load Merchants...", merchants_path, class: "js-merchant-index" %></div>
          <% else %>
-         <div class="collapsible-header active"><i class="material-icons">store</i>Merchants in: <%=params["location"]%></div>
-         <%= render collection: @merchants, partial: 'merchants/users_merchants', as: :merchant %>
+         <div class="active"><i class="material-icons">store</i>Merchants in: <%=params["location"]%></div>
+         <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
      <% end %>
        </li>
      </ul>
