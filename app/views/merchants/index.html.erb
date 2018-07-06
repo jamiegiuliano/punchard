@@ -49,7 +49,7 @@
      <ul class="collection all-merchants">
        <li>
          <% if params["commit"].nil? || params["location"].empty? %>
-           <div class="active"><%= link_to "Load Merchants...", merchants_path, class: "js-merchant-index" %></div>
+           <div class="active"><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index" %></div>
          <% else %>
          <div class="active"><i class="material-icons">store</i>Merchants in: <%=params["location"]%></div>
          <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
