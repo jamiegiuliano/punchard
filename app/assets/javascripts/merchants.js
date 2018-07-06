@@ -2,13 +2,20 @@
 $(function showMerchants() {
   $(".js-merchant-index").on("click", function(e) {
     e.preventDefault();
-    getMerchantList(this.href);
+    getMerchantList();
   });
 })
 
 /////// AJAX Calls //////
-const getMerchantList = function(url){
-  $.get(url).done(function(response) {
-    $('.all-merchants li').html(response);
+const getMerchantList = function() {
+  $.get("/merchants.json", function(response) {
+    debugger
+    var names = response.map(merchant => merchant.name)
+    names.forEach(function(name){
+      $('.all-merchants li').append(`
+        <div>${name}</div>
+      `);
+    })
+
   });
 }

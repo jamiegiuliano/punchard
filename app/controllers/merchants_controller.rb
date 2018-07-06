@@ -4,7 +4,12 @@ class MerchantsController < ApplicationController
 
   def index
     @merchants = user_merchants
-    render layout: false
+    #render layout: false
+
+    respond_to do |format|
+		  format.html { render :index }
+		  format.json { render json: @merchants }
+		end
   end
 
   def new
@@ -34,9 +39,11 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    if !user_merchants.include?(@merchant)
-      redirect_to merchants_path(current_user), notice: "Merchant not found."
-    end
+    #if !user_merchants.include?(@merchant)
+    #  redirect_to merchants_path(current_user), notice: "Merchant not found."
+    #end
+    @merchant = Merchant.find(params[:id])
+    render json: @merchant, status: 200
   end
 
   def favorite
