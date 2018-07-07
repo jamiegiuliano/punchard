@@ -12,6 +12,7 @@ class MerchantsController < ApplicationController
     respond_to do |format|
 		  format.html { render :index }
 		  format.json { render json: @merchants }
+      format.js
 		end
   end
 

@@ -1,5 +1,4 @@
 <!-- User's Merchants
-  <div class="collapsible-header active"><i class="material-icons">store</i>All Merchants</div>
   <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
    -->
    <!-- INDEX PAGE -->
@@ -45,17 +44,8 @@
    </div>
    <br />
 
-   <!-- User's Merchants -->
-     <ul class="collection all-merchants">
-       <li>
-         <% if params["commit"].nil? || params["location"].empty? %>
-           <div class="active"><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index" %></div>
-         <% else %>
-         <div class="active"><i class="material-icons">store</i>Merchants in: <%=params["location"]%></div>
-         <%= render collection: @merchants, partial: 'users_merchants', as: :merchant %>
-     <% end %>
-       </li>
-     </ul>
+  <div class="active"><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index" %></div>
+  <ul class="collection all-merchants"><li></li></ul>
 
        </div>
      </div>
