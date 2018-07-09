@@ -13,7 +13,7 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to user_merchant_path(current_user, current_merchant), notice: 'Link was successfully updated.'
+      redirect_to merchant_path(current_merchant), notice: 'Link was successfully updated.'
     else
       render :edit
     end

@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   has_one :category, dependent: :destroy
+  belongs_to :merchant
 
   accepts_nested_attributes_for(:category)
 

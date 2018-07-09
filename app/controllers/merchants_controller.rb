@@ -44,9 +44,7 @@ class MerchantsController < ApplicationController
 
   def show
     @merchant = Merchant.find(params[:id])
-    #if !user_merchants.include?(@merchant)
-    #  redirect_to merchants_path(current_user), notice: "Merchant not found."
-    #end
+
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @merchant }
