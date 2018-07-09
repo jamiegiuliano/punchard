@@ -37,14 +37,6 @@ $(function filterMerchants() {
   });
 });
 
-//$(function filterMerchants() {
-//  $('.merchants_filter').on("click", function(e) {
-//    e.preventDefault();
-//    const location = $('.active')[0].innerText;
-//    filterMerchantList(location);
-//  })
-//})
-
 /////// AJAX Calls //////
 const getMerchantList = function() {
   $.get('/merchants.json').done(function(response) {
@@ -56,16 +48,3 @@ const getMerchantList = function() {
     $('.all-merchants li').html(merchants);
   });
 }
-
-//const filterMerchantList = function(location) {
-//  var url = '/merchants.json?utf8=✓&location='+ location.split(',')[0] + '%2C+'+location.split(',')[1] + '&commit=Filter'.replace(/\s/g, '');
-//  url = url.replace(/\s/g, '');
-//  $.get(url).done(function(response) {
-//    let merchants = '';
-//    $.each(response, function(index, value) {
-//      const merchant = new Merchant(value);
-//      merchants += merchant.buildMerchantsList();
-//    });
-//    $('.all-merchants li').html(merchants);
-//  });
-//}
