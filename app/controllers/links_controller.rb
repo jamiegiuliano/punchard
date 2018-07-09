@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     @link.save
-    redirect_to user_merchant_path(current_user, current_merchant)
+    redirect_to merchant_path(current_merchant)
   end
 
   def edit
@@ -21,7 +21,7 @@ class LinksController < ApplicationController
 
   def destroy
     @link.destroy
-    redirect_to user_merchant_path(current_user, current_merchant)
+    redirect_to merchant_path(current_merchant)
   end
 
   private

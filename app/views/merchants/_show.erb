@@ -1,3 +1,4 @@
+<span class="merchant-show">
 <div class="left">
 <%= image_tag(merchant.image, class:"circle")%><br />
 <h4><%= merchant.name %></h4>
@@ -11,8 +12,8 @@ Total Stars: <%= merchant.star_count %><br />
 <ul>
   <li><%= link_to c.name, c.link.url, target: '_blank', hidden_field: c.link.id %>
 
-  <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_user_merchant_link_path(current_user, merchant, c.link) %>
-  <%= link_to '<i class="tiny material-icons">delete_forever</i>'.html_safe, user_merchant_link_path(current_user, merchant, c.link), method: :delete, data: { confirm: 'Are you sure?' }  %>
+  <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_merchant_link_path(merchant, c.link) %>
+  <%= link_to '<i class="tiny material-icons">delete_forever</i>'.html_safe, merchant_link_path(merchant, c.link), method: :delete, data: { confirm: 'Are you sure?' }  %>
   </li>
 </ul>
 <% end %>
@@ -22,7 +23,7 @@ Total Stars: <%= merchant.star_count %><br />
 <div class="link_form right form">
 <strong>Add another link!</strong>
 
-<%= form_for [current_user, merchant, merchant.links.build] do |f| %>
+<%= form_for [merchant, merchant.links.build] do |f| %>
   <%= f.label :url, "URL:" %>
   <%= f.text_field :url, placeholder: "https://squareup.com/" %>
 
@@ -37,6 +38,7 @@ Total Stars: <%= merchant.star_count %><br />
 <%= f.submit "Create Link", class: "btn-small" %>
 <% end %>
 </div>
+</span>
 
 <!-- Materialize -->
 <script type="text/javascript" charset="utf-8">
