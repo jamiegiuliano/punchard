@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:edit, :update, :destroy]
+  before_action :set_link, only: [:edit, :update, :show, :destroy]
 
   def create
     @link = Link.new(link_params)
@@ -17,6 +17,10 @@ class LinksController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def show
+    render json: @link
   end
 
   def destroy

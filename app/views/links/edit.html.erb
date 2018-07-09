@@ -1,7 +1,7 @@
 <%= render 'layouts/error_messages', object: @link %>
 
 <div class="form">
-<%= form_for [current_user, @merchant, @link] do |f| %>
+<%= form_for [@merchant, @link] do |f| %>
   <%= f.label :url, "URL:" %>
   <%= f.text_field :url, placeholder: "https://squareup.com/" %>
 
