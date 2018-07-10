@@ -27,6 +27,7 @@ Merchant.prototype.buildMerchantsList = function() {
 Merchant.prototype.buildMerchantShowPage = function() {
   let output = '';
   let merchantCats = this.categories;
+  let auth_token = $('meta[name=csrf-token]').attr('content');
   output += `
   <div class="container center merchant-show">
     <div class="row">
@@ -50,11 +51,11 @@ Merchant.prototype.buildMerchantShowPage = function() {
               </div>
               <div class="link_form right form">
               <strong>Add another link!</strong>
-            <form class="new_link" id="new_link" action="/merchants/4/links" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+            <form class="new_link" id="new_link" action="/merchants/${this.id}/links" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="${auth_token}">
                 <label for="link_url">URL:</label>
                 <input placeholder="https://squareup.com/" type="text" name="link[url]" id="link_url">
 
-                <input type="hidden" value="4" name="link[merchant_id]" id="link_merchant_id">
+                <input type="hidden" value="${this.id}" name="link[merchant_id]" id="link_merchant_id">
 
                 <div class="input-field">
 
