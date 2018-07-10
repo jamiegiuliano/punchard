@@ -67,6 +67,8 @@ Merchant.prototype.buildMerchantShowPage = function() {
                 <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
                 </form>
                 </div>
+                </div>
+                <a href="#" class="js-next center" data-id="${this.id}">Next...</a>
                 </span>`;
     return output;
   }
@@ -113,8 +115,14 @@ const getNextMerchant = function(currentId) {
     const merchant = new Merchant(response);
     const html = merchant.buildMerchantShowPage();
     $('.merchant-show').html(html);
+    // reattach Listener for Materialize Select
     $(document).ready(function() {
       $(this).find('select').material_select();
+      // reattach Listerner for 'next'
+      $('.js-next').on("click", function(e) {
+        e.preventDefault();
+        getNextMerchant(parseInt(this.dataset.id));
+      });
     });
   });
 }
