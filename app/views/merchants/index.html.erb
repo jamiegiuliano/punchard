@@ -30,8 +30,13 @@
          </div>
        </div>
 
-   <!-- Filter -->
    <div class="col s12 m8 l8">
+  <% if current_user.merchants.empty? %>
+  <h6 class="center">Add your first Merchant!</h6>
+  <%= render 'form', merchant: current_user.merchants.build , link: current_user.links.build %>
+  <% end %>
+
+   <!-- Filter -->
    <div class="input-field">
      <% if !current_user.merchants.distinct.pluck(:location).empty? %>
        Filter by location:
@@ -41,12 +46,10 @@
    </div>
    <br />
 
-  <% if current_user.merchants.empty? %>
-    <%= render 'form', merchant: current_user.merchants.build , link: current_user.links.build %>
-  <% else %>
+  <% if current_user.merchants.first.persisted? %>
     <div class="active"><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index" %></div>
   <% end %>
-  
+
   <ul class="collection all-merchants"><li></li></ul>
 
        </div>

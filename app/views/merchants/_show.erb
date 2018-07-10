@@ -15,7 +15,7 @@
                 <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_merchant_link_path(merchant, c.link) %>
                 <%= link_to '<i class="tiny material-icons">delete_forever</i>'.html_safe, merchant_link_path(merchant, c.link), method: :delete, data: { confirm: 'Are you sure?' }  %>
               </li>
-
+            </ul>
           <% end %>
         </div>
       </div>
