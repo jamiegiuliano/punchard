@@ -4,7 +4,10 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     @link.save
-    redirect_to merchant_path(current_merchant)
+    respond_to do |format|
+      format.html { redirect_to @link.merchant }
+      format.json { render json: @link, status: 202 }
+    end
   end
 
   def edit

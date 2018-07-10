@@ -101,6 +101,15 @@ $(function paginateMerchants() {
   });
 })
 
+$(function newLink() {
+  $('form#new_link').on("submit", function(e) {
+    e.preventDefault();
+    const values = $(this).serialize();
+    const action = this.action;
+    createNewLink(values, action);
+  });
+})
+
 /////// AJAX Calls //////
 const getMerchantList = function() {
   $.get('/merchants.json').done(function(response) {
@@ -129,5 +138,22 @@ const getNextMerchant = function(currentId) {
         getNextMerchant(parseInt(this.dataset.id));
       });
     });
+  });
+}
+
+const createNewLink = function(values, action){
+  $.ajax({
+    url: action,
+    type: 'POST',
+    data: values,
+    dataType: 'JSON',
+    success: function(data) {
+      let output = `<li><a href="${data.url}" target="_blank" hidden_field="${data.id}">${data.category.name}</a>
+                      <a href="/merchants/${data.merchant_id}/links/${data.id}/edit"><i class="tiny material-icons">edit</i></a>
+                      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${data.merchant_id}/links/${data.id}"><i class="tiny material-icons">delete_forever</i></a>
+
+                `;
+      $('#link_list').append(output);
+    }
   });
 }
