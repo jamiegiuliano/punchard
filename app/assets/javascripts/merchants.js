@@ -43,8 +43,8 @@ Merchant.prototype.buildMerchantShowPage = function() {
     <ul>`;
     $.each(this.links, function(index, value) {
       output += `<li><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
-      <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="material-icons">edit</i></a>
-      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${value.merchant_id}/links/${value.id}"><i class="material-icons">delete_forever</i></a></li>`;
+      <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="tiny material-icons">edit</i></a>
+      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${value.merchant_id}/links/${value.id}"><i class="tiny material-icons">delete_forever</i></a></li>`;
     });
     output += `</div>
               </div>
@@ -63,20 +63,16 @@ Merchant.prototype.buildMerchantShowPage = function() {
                 <option value="Receipt">Receipt</option></select></div>
                 </div>
 
-                <input type="submit" name="commit" value="Create Link" class="btn-small" data-disable-with="Create Link">
+                <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
                 </form>
                 </div>
-                </span>
-                <script type="text/javascript" charset="utf-8">
-                $(document).ready(function() {
-                 $('select').material_select();
-                });
-                </script>`;
+                </span>`;
     return output;
   }
 
 
 //////// Event Listeners //////
+
 $(function showMerchants() {
   $(".js-merchant-index").on("click", function(e) {
     e.preventDefault();
@@ -116,5 +112,8 @@ const getNextMerchant = function(currentId) {
     const merchant = new Merchant(response);
     const html = merchant.buildMerchantShowPage();
     $('.merchant-show').html(html);
+    $(document).ready(function() {
+      $(this).find('select').material_select();
+    });
   });
 }
