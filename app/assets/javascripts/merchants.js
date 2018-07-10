@@ -31,45 +31,49 @@ Merchant.prototype.buildMerchantShowPage = function() {
   output += `
   <div class="container center merchant-show">
     <div class="row">
-
-    <span class="merchant-show">
-    <div class="left">
-    <img alt="Icon" class="circle" src="${this.image}" /><br />
-    <h4>${this.name}</h4>
-    Location: ${this.location}<br />
-    Total Stars: ${this.star_count}<br />
-    <br />
-    <div class="divider"></div><br />
-    <div class="merchant_links">
-    <ul>`;
+      <span class="merchant-show">
+        <div class="left">
+          <img alt="Icon" class="circle" src="${this.image}" /><br />
+          <h4>${this.name}</h4>
+          Location: ${this.location}<br />
+          Total Stars: ${this.star_count}<br />
+          <br />
+          <div class="divider"></div><br />
+            <div class="merchant_links">
+              <ul>`;
     $.each(this.links, function(index, value) {
       output += `<li><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
-      <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="tiny material-icons">edit</i></a>
-      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${value.merchant_id}/links/${value.id}"><i class="tiny material-icons">delete_forever</i></a></li>`;
+                      <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="tiny material-icons">edit</i></a>
+                      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${value.merchant_id}/links/${value.id}"><i class="tiny material-icons">delete_forever</i></a>
+                </li>
+                `;
     });
     output += `</div>
               </div>
               <div class="link_form right form">
-              <strong>Add another link!</strong>
-            <form class="new_link" id="new_link" action="/merchants/${this.id}/links" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="${auth_token}">
-                <label for="link_url">URL:</label>
-                <input placeholder="https://squareup.com/" type="text" name="link[url]" id="link_url">
+                <strong>Add another link!</strong>
+                <form class="new_link" id="new_link" action="/merchants/${this.id}/links" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="${auth_token}">
+                  <label for="link_url">URL:</label>
+                  <input placeholder="https://squareup.com/" type="text" name="link[url]" id="link_url">
 
-                <input type="hidden" value="${this.id}" name="link[merchant_id]" id="link_merchant_id">
+                  <input type="hidden" value="${this.id}" name="link[merchant_id]" id="link_merchant_id">
 
-                <div class="input-field">
+                  <div class="input-field">
 
-                <div class="select-wrapper initialized"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" value="Loyalty Profile"><ul id="select-options-dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" class="dropdown-content select-dropdown "><li class=""><span>Loyalty Profile</span></li><li class=""><span>Reward</span></li><li class=""><span>Receipt</span></li></ul><select name="link[category_attributes][name]" id="link_category_attributes_name" data-select-id="dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" class="initialized"><option value="Loyalty Profile">Loyalty Profile</option>
-                <option value="Reward">Reward</option>
-                <option value="Receipt">Receipt</option></select></div>
+                  <div class="select-wrapper initialized"><span class="caret">▼</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" value="Loyalty Profile"><ul id="select-options-dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" class="dropdown-content select-dropdown "><li class=""><span>Loyalty Profile</span></li><li class=""><span>Reward</span></li><li class=""><span>Receipt</span></li></ul><select name="link[category_attributes][name]" id="link_category_attributes_name" data-select-id="dedcf2ea-a91d-3b8f-2bc4-c10d107fc746" class="initialized"><option value="Loyalty Profile">Loyalty Profile</option>
+                  <option value="Reward">Reward</option>
+                  <option value="Receipt">Receipt</option></select></div>
+                  </div>
+
+                  <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
+                  </form>
                 </div>
-
-                <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
-                </form>
-                </div>
-                </div>
-                <a href="#" class="js-next center" data-id="${this.id}">Next...</a>
-                </span>`;
+              </span>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="js-next center" data-id="${this.id}">Next...</a></div></div></div>
+      </div>`;
     return output;
   }
 
@@ -114,6 +118,7 @@ const getNextMerchant = function(currentId) {
   $.get('/merchants/' + nextId + '.json').done(function(response) {
     const merchant = new Merchant(response);
     const html = merchant.buildMerchantShowPage();
+    $('.merchant-show').empty(); // smoother transition
     $('.merchant-show').html(html);
     // reattach Listener for Materialize Select
     $(document).ready(function() {

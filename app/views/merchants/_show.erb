@@ -1,41 +1,42 @@
-<span class="merchant-show">
-<div class="left">
-<%= image_tag(merchant.image, class:"circle")%><br />
-<h4><%= merchant.name %></h4>
-Location: <%= merchant.location %><br />
-Total Stars: <%= merchant.star_count %><br />
-<br />
-<div class="divider"></div><br />
+<div class="container center merchant-show">
+  <span class="merchant-show">
+    <div class="left">
+      <%= image_tag(merchant.image, class:"circle")%><br />
+      <h4><%= merchant.name %></h4>
+      Location: <%= merchant.location %><br />
+      Total Stars: <%= merchant.star_count %><br />
+      <br />
+      <div class="divider"></div><br />
 
-<div class="merchant_links">
-<% merchant.categories.each do |c| %>
-<ul>
-  <li><%= link_to c.name, c.link.url, target: '_blank', hidden_field: c.link.id %>
+        <div class="merchant_links">
+          <% merchant.categories.each do |c| %>
+            <ul>
+              <li><%= link_to c.name, c.link.url, target: '_blank', hidden_field: c.link.id %>
+                <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_merchant_link_path(merchant, c.link) %>
+                <%= link_to '<i class="tiny material-icons">delete_forever</i>'.html_safe, merchant_link_path(merchant, c.link), method: :delete, data: { confirm: 'Are you sure?' }  %>
+              </li>
+            
+          <% end %>
+        </div>
+      </div>
 
-  <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_merchant_link_path(merchant, c.link) %>
-  <%= link_to '<i class="tiny material-icons">delete_forever</i>'.html_safe, merchant_link_path(merchant, c.link), method: :delete, data: { confirm: 'Are you sure?' }  %>
-  </li>
-</ul>
-<% end %>
+    <div class="link_form right form">
+      <strong>Add another link!</strong>
+
+      <%= form_for [merchant, merchant.links.build] do |f| %>
+        <%= f.label :url, "URL:" %>
+        <%= f.text_field :url, placeholder: "https://squareup.com/" %>
+
+        <%= f.hidden_field :merchant_id %>
+
+        <div class="input-field">
+          <%= f.fields_for :category, merchant.links.build.build_category do |c_builder| %>
+            <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
+          <% end %>
+        </div>
+
+        <%= f.submit "Create Link", class: "btn-small create-link" %>
+      <% end %>
+    </div>
+  </span>
 </div>
-</div>
-
-<div class="link_form right form">
-<strong>Add another link!</strong>
-
-<%= form_for [merchant, merchant.links.build] do |f| %>
-  <%= f.label :url, "URL:" %>
-  <%= f.text_field :url, placeholder: "https://squareup.com/" %>
-
-  <%= f.hidden_field :merchant_id %>
-
-  <div class="input-field">
-  <%= f.fields_for :category, merchant.links.build.build_category do |c_builder| %>
-    <%= c_builder.select :name, ["Loyalty Profile", "Reward", "Receipt"] %>
-  <% end %>
-  </div>
-
-<%= f.submit "Create Link", class: "btn-small create-link" %>
-<% end %>
-</div>
-</span>
