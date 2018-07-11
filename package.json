@@ -1,7 +1,9 @@
 {
   "name": "punchcard",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "confetti-js": "0.0.11"
+  },
   "version": "1.0.0",
   "description": "Rails app",
   "main": "index.js",

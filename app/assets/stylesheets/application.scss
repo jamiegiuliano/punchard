@@ -122,10 +122,6 @@ hr {
   margin-bottom: 30px;
 }
 
-.favorites {
-  padding-top: 10px;
-}
-
 .js-next {
   position: fixed;
   bottom: 2rem;
@@ -133,4 +129,42 @@ hr {
 
 .main-merchant {
   position: absolute;
+}
+
+.all-favorites {
+  padding-top: 3rem;
+}
+
+.image {
+  border: 1px solid;
+}
+
+// CONFETTI
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  position: relative;
+  zindex: 1;
+  pointer-events: none;
+}
+
+#content {
+  text-align: center;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -200px;
+}
+
+
+button {
+  padding: 5px 10px;
 }

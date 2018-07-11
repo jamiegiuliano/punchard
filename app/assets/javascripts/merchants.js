@@ -33,7 +33,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
     <div class="container center merchant-show">
       <div class="merchant-show">
         <div class="left main-merchant">
-          <img alt="Icon" class="circle" src="${this.image}" /><br />
+          <img alt="Icon" class="circle z-depth-3" src="${this.image}" /><br />
           <h4>${this.name}</h4>
           Location: ${this.location}<br />
           Total Stars: ${this.star_count}<br />
@@ -66,7 +66,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
                   <option value="Receipt">Receipt</option></select></div>
                   </div>
 
-                  <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
+                  <input type="submit" name="commit" value="Create Link" class="btn-small create-link">
                   </form>
                 </div>
               </div>
