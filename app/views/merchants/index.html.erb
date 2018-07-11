@@ -4,7 +4,7 @@
    <!-- User image/info -->
    <div class="row">
      <div class="col s12 m4 l4 left">
-       <div class="card-panel grey lighten-5 z-depth-1">
+       <div class="card-panel grey lighten-5 z-depth-4">
          <div class="row valign-wrapper">
            <div class="col s7">
              <% if current_user.uid.blank? %>
@@ -47,10 +47,10 @@
    <br />
 
   <% if current_user.merchants.first.persisted? %>
-    <div class="active"><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index" %></div>
+    <div><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index waves-effect waves-teal btn-flat" %></div>
   <% end %>
 
-  <ul class="collection all-merchants"><li></li></ul>
+  <ul class="collection all-merchants z-depth-3"><li></li></ul>
 
        </div>
      </div>
@@ -61,8 +61,4 @@
    $(document).ready(function() {
     $('select').material_select();
    });
-
-   $(document).ready(function(){
-       $('.collapsible').collapsible();
-     });
    </script>

@@ -1,14 +1,14 @@
 <div class="container center merchant-show">
   <span class="merchant-show">
-    <div class="left">
-      <%= image_tag(merchant.image, class:"circle")%><br />
+    <div class="left main-merchant">
+      <%= image_tag(merchant.image, class:"circle z-depth-3")%><br />
       <h4><%= merchant.name %></h4>
       Location: <%= merchant.location %><br />
       Total Stars: <%= merchant.star_count %><br />
       <br />
       <div class="divider"></div><br />
 
-        <div class="merchant_links">
+        <div class="merchant_links collection">
           <% merchant.categories.each do |c| %>
             <ul id="link_list">
               <li><%= link_to c.name, c.link.url, target: '_blank', hidden_field: c.link.id %>

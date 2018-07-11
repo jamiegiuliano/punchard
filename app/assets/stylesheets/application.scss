@@ -75,7 +75,7 @@ span.navbar-logo-text, .navbar-text li a {
 }
 
 .logo-container, .merchant-show {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .about p {
@@ -125,6 +125,11 @@ hr {
   padding-top: 10px;
 }
 
-.index-page, .merchant-show {
+.js-next {
+  float: right;
+  position: relative;
+}
 
+.main-merchant {
+  position: absolute;
 }

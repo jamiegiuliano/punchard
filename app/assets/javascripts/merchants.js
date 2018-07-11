@@ -32,14 +32,14 @@ Merchant.prototype.buildMerchantShowPage = function() {
   <div class="container center merchant-show">
     <div class="row">
       <span class="merchant-show">
-        <div class="left">
+        <div class="left main-merchant">
           <img alt="Icon" class="circle" src="${this.image}" /><br />
           <h4>${this.name}</h4>
           Location: ${this.location}<br />
           Total Stars: ${this.star_count}<br />
           <br />
           <div class="divider"></div><br />
-            <div class="merchant_links">
+            <div class="merchant_links collection">
               <ul>`;
     $.each(this.links, function(index, value) {
       output += `<li><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
@@ -71,8 +71,8 @@ Merchant.prototype.buildMerchantShowPage = function() {
               </span>
             </div>
           </div>
+          <a class="btn-floating btn-medium waves-effect waves-light grey js-next" data-id="${this.id}"><i class="small material-icons">arrow_forward</i></a>
         </div>
-        <a href="#" class="js-next center" data-id="${this.id}">Next...</a></div></div></div>
       </div>`;
     return output;
   }
