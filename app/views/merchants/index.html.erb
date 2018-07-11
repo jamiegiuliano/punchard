@@ -47,7 +47,7 @@
    <br />
 
   <% if current_user.merchants.first.persisted? %>
-    <div><%= link_to "Show Merchants...", merchants_path, class: "js-merchant-index waves-effect waves-teal btn-flat" %></div>
+    <div><%= link_to "Show Merchants", merchants_path, class: "js-merchant-index waves-effect waves-teal btn-flat" %></div>
   <% end %>
 
   <ul class="collection all-merchants z-depth-3"><li></li></ul>

@@ -40,9 +40,9 @@ Merchant.prototype.buildMerchantShowPage = function() {
           <br />
           <div class="divider"></div><br />
             <div class="merchant_links collection">
-              <ul>`;
+              <ul id="link_list" class="collection">`;
     $.each(this.links, function(index, value) {
-      output += `<li><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
+      output += `<li class="collection-item"><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
                       <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="tiny material-icons">edit</i></a>
                       <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${value.merchant_id}/links/${value.id}"><i class="tiny material-icons">delete_forever</i></a>
                 </li>
@@ -148,7 +148,7 @@ const createNewLink = function(values, action){
     data: values,
     dataType: 'JSON',
     success: function(data) {
-      let output = `<li><a href="${data.url}" target="_blank" hidden_field="${data.id}">${data.category.name}</a>
+      let output = `<li class="collection-item"><a href="${data.url}" target="_blank" hidden_field="${data.id}">${data.category.name}</a>
                       <a href="/merchants/${data.merchant_id}/links/${data.id}/edit"><i class="tiny material-icons">edit</i></a>
                       <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${data.merchant_id}/links/${data.id}"><i class="tiny material-icons">delete_forever</i></a>
 
