@@ -7,11 +7,24 @@
   "version": "1.0.0",
   "description": "Rails app",
   "main": "index.js",
-  "repository": "https://github.com/jamiegiuliano/punchcard.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamiegiuliano/punchcard.git"
+  },
   "author": "Jamie Giuliano <https://github.com/jamiegiuliano>",
   "license": "MIT",
   "devDependencies": {
     "webpack": "^4.8.3",
     "webpack-dev-server": "^3.1.4"
+  },
+  "bugs": {
+    "url": "https://github.com/jamiegiuliano/punchcard/issues"
+  },
+  "homepage": "https://github.com/jamiegiuliano/punchcard#readme",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
