@@ -40,7 +40,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
           <br />
           <div class="divider"></div><br />
             <div class="merchant_links">
-              <ul id="link_list" class="collection">`;
+              <ul id="link_list" class="collection" style="width:200px;max-height:150px;overflow-y:scroll;">`;
     $.each(this.links, function(index, value) {
       output += `<li class="collection-item"><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
                       <a href="/merchants/${value.merchant_id}/links/${value.id}/edit"><i class="tiny material-icons">edit</i></a>
@@ -50,6 +50,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
     });
     output += `</div>
               </div>
+              <br /><br /><br />
               <div class="link_form right form">
                 <strong>Add another link!</strong>
                 <form class="new_link" id="new_link" action="/merchants/${this.id}/links" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="${auth_token}">

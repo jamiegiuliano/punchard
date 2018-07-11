@@ -2,6 +2,7 @@
   <div class="row">
     <%= render 'show', merchant: @merchant %>
   </div>
+
   <% if current_user.merchants.length > 1 %>
   <a class="btn-floating btn-medium waves-effect waves-light grey js-next" data-id="<%=@merchant.id%>"><i class="small material-icons">arrow_forward</i></a>
   <% end %>

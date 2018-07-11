@@ -9,7 +9,7 @@
       <div class="divider"></div><br />
 
         <div class="merchant_links">
-          <ul id="link_list" class="collection">
+          <ul id="link_list" class="collection" style="width:200px;max-height:150px;overflow-y:scroll;">
           <% merchant.categories.each do |c| %>
               <li class="collection-item"><%= link_to c.name, c.link.url, target: '_blank', hidden_field: c.link.id %>
                 <%= link_to '<i class="tiny material-icons">edit</i>'.html_safe, edit_merchant_link_path(merchant, c.link) %>
@@ -19,7 +19,7 @@
           </ul>
         </div>
       </div>
-
+    <br /><br /><br />
     <div class="link_form right form">
       <strong>Add another link!</strong>
 

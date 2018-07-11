@@ -127,15 +127,10 @@ hr {
 }
 
 .js-next {
-  float: right;
-  position: relative;
-  margin-left: 10rem;
+  position: fixed;
+  bottom: 2rem;
 }
 
 .main-merchant {
   position: absolute;
-}
-
-.link_form {
-  margin-top: 100;
 }
