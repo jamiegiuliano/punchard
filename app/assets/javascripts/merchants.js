@@ -29,9 +29,9 @@ Merchant.prototype.buildMerchantShowPage = function() {
   let merchantCats = this.categories;
   let auth_token = $('meta[name=csrf-token]').attr('content');
   output += `
-  <div class="container center merchant-show">
     <div class="row">
-      <span class="merchant-show">
+    <div class="container center merchant-show">
+      <div class="merchant-show">
         <div class="left main-merchant">
           <img alt="Icon" class="circle" src="${this.image}" /><br />
           <h4>${this.name}</h4>
@@ -39,7 +39,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
           Total Stars: ${this.star_count}<br />
           <br />
           <div class="divider"></div><br />
-            <div class="merchant_links collection">
+            <div class="merchant_links">
               <ul id="link_list" class="collection">`;
     $.each(this.links, function(index, value) {
       output += `<li class="collection-item"><a href="${value.url}" target="_blank" hidden_field="${value.id}">${merchantCats[index].name}</a>
@@ -68,7 +68,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
                   <input type="submit" name="commit" value="Create Link" class="btn-small create-link" data-disable-with="Create Link">
                   </form>
                 </div>
-              </span>
+              </div>
             </div>
           </div>
           <a class="btn-floating btn-medium waves-effect waves-light grey js-next" data-id="${this.id}"><i class="small material-icons">arrow_forward</i></a>

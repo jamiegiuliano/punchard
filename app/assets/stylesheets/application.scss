@@ -3,6 +3,7 @@
   .application-body {
     background-color: rgba(11, 92, 106, 0.05);
     height: 425px;
+    position: relative;
   }
 
  .logo {
@@ -128,8 +129,13 @@ hr {
 .js-next {
   float: right;
   position: relative;
+  margin-left: 10rem;
 }
 
 .main-merchant {
   position: absolute;
+}
+
+.link_form {
+  margin-top: 100;
 }
