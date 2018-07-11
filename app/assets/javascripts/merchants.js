@@ -134,7 +134,10 @@ const getNextMerchant = function(currentId) {
     $(document).ready(function() {
       $(this).find('select').material_select();
       // reattach Listerner for 'next'
-    paginateMerchants();
+      $('.js-next').on("click", function(e) {
+        e.preventDefault();
+        getNextMerchant(parseInt(this.dataset.id));
+      });
     });
   });
 }
