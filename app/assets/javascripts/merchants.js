@@ -134,10 +134,7 @@ const getNextMerchant = function(currentId) {
     $(document).ready(function() {
       $(this).find('select').material_select();
       // reattach Listerner for 'next'
-      $('.js-next').on("click", function(e) {
-        e.preventDefault();
-        getNextMerchant(parseInt(this.dataset.id));
-      });
+    paginateMerchants();
     });
   });
 }
@@ -155,6 +152,9 @@ const createNewLink = function(values, action){
 
                 `;
       $('#link_list').append(output);
-    }
+      $('#link_url').val('');
+      // reattach Listerner for New Link Form
+      newLink();
+      }
   });
 }
