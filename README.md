@@ -1,6 +1,6 @@
 # Punchcard
 
-![Alt Text](https://media.giphy.com/media/jyVu09tJar5wHQYK14/giphy.gif)
+![Alt Text](https://giphy.com/gifs/851ddgfzonNPLttkur/html5)
 
 Punchcard is the client-side tracker for loyalty programs connected to Square.
 
