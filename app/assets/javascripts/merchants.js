@@ -104,10 +104,10 @@ $(function paginateMerchants() {
 
 $(function newLink() {
     $('#btn_manage').on("click", function(e) {
-      debugger
     e.preventDefault();
-    const values = $(this).serialize();
-    const action = this.action;
+    const values = $('form#new_link').serialize();
+    const action = $('form#new_link').attr('action');
+    debugger
     createNewLink(values, action);
   });
 })
@@ -118,7 +118,6 @@ const getMerchantList = function() {
     let merchants = '';
     $.each(response, function(index, value) {
       const merchant = new Merchant(value);
-      debugger
       merchants += merchant.buildMerchantsList();
     });
     $('.all-merchants li').html(merchants);
@@ -145,10 +144,10 @@ const getNextMerchant = function(currentId) {
 }
 
 const createNewLink = function(values, action){
+
   $.ajax({
     url: action,
     type: 'POST',
-    headers: { "cache-control": "no-cache" },
     data: values,
     dataType: 'JSON',
     success: function(data) {
