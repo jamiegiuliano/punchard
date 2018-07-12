@@ -144,20 +144,16 @@ const getNextMerchant = function(currentId) {
 
 const createNewLink = function(values, action){
   $.ajax({
+    cache: false,
     url: action,
     type: 'POST',
     data: values,
     dataType: 'JSON',
     success: function(data) {
-      let output = `<li class="collection-item"><a href="${data.url}" target="_blank" hidden_field="${data.id}">${data.category.name}</a>
-                      <a href="/merchants/${data.merchant_id}/links/${data.id}/edit"><i class="tiny material-icons">edit</i></a>
-                      <a data-confirm="Are you sure?" data-method="delete" href="/merchants/${data.merchant_id}/links/${data.id}"><i class="tiny material-icons">delete_forever</i></a>
-
-                `;
-      $('#link_list').append(output);
+      const link = new Link(data)
+      const html = link.buildLinks();
+      $('#link_list').append(html);
       $('#link_url').val('');
-      // reattach Listerner for New Link Form
-      newLink();
-      }
+    };
   });
 }
