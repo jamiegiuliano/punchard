@@ -107,7 +107,6 @@ $(function newLink() {
     e.preventDefault();
     const values = $('form#new_link').serialize();
     const action = $('form#new_link').attr('action');
-    debugger
     createNewLink(values, action);
   });
 })
@@ -144,7 +143,6 @@ const getNextMerchant = function(currentId) {
 }
 
 const createNewLink = function(values, action){
-
   $.ajax({
     url: action,
     type: 'POST',

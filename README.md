@@ -2,7 +2,7 @@
 
 ![Alt Text](https://media.giphy.com/media/851ddgfzonNPLttkur/giphy.gif)
 
-Punchcard is the client-side tracker for loyalty programs connected to Square.
+Punchcard is the client-side manager for loyalty programs connected to Square.
 
 ## Usage
 
@@ -19,6 +19,15 @@ you'd like! (One per Merchant for now).
 - `bundle install`
 - `rails db:migrate`
 - `rails s`
+
+## Technologies Used
+
+> - RoR
+> - JavaScript
+> - jQuery
+> - Materialize
+> - HTML5
+> - CSS3
 
 ## Contributing
 

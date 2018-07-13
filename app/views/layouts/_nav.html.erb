@@ -15,15 +15,28 @@
     </div>
   </nav>
 <% else %>
-  <nav class="navbar-fixed transparent z-depth-0" role="navigation">
+  <nav class="transparent z-depth-0" role="navigation">
     <div class="container nav-wrapper">
-      <ul id="nav-mobile" class="left hide-on-med-and-down navbar-text">
+      <a href="#" data-activates="mobile-demo" id="nav_mobile_dropdown" class="button-collapse left"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down navbar-text">
           <li><%= link_to 'Welcome', root_path, method: :get %></li>
           <li><%= link_to 'About', about_path, method: :get %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path, method: :get %></li>
           <li><%= link_to 'Sign In', new_user_session_path, method: :get %></li>
       </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to 'Welcome', root_path, method: :get %></li>
+        <li><%= link_to 'About', about_path, method: :get %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path, method: :get %></li>
+        <li><%= link_to 'Sign In', new_user_session_path, method: :get %></li>
+       </ul>
     </div>
   </nav>
 
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".button-collapse").sideNav();
+  });
+</script>
