@@ -12,24 +12,16 @@
   and (max-width: 400px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .application-body {
-      height: 350px;
+      height: 300px;
     }
     span.logo_text {
       font-size: 40px;
-      float:none;
     }
     .btn-large {
       visibility: hidden;
     }
-    h2.center.landing.logo {
-      left: 0;
-      right: 0;
-      float: none;
-      align-items: flex-end;
-      display: inline-block;
-    }
-    #demo {
-      
+    p.col.s8.push-s2 {
+      font-size: 18px;
     }
 }
 
