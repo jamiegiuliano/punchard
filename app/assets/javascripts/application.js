@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= materialize
+//= links
+//= merchants
 //= require materialize-sprockets
 //= require jquery_ujs
 //= require activestorage
