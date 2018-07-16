@@ -33,7 +33,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
     <div class="container center merchant-show">
       <div class="merchant-show">
         <div class="left main-merchant">
-          <img alt="Icon" class="circle z-depth-3" src="${this.image}" /><br />
+          <img alt="Icon" class="circle z-depth-3" height="150" width="150" src="${this.image}" /><br />
           <h4>${this.name}</h4>
           Location: ${this.location}<br />
           Total Stars: ${this.star_count}<br />

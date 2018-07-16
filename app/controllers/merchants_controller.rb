@@ -55,7 +55,7 @@ class MerchantsController < ApplicationController
     # need to actually scrape each merchant here to get their up-to-date star count.
     if !user_merchants.empty?
     @favorite = user_merchants.current_favorite(user_merchants.count_stars)
-    Scraper.scrape_square(@favorite.first)
+    #Scraper.scrape_square(@favorite.first)
     end
   end
 
