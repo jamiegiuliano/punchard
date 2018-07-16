@@ -22,12 +22,12 @@ you'd like! (One per Merchant for now).
 
 ## Technologies Used
 
-> - RoR
-> - JavaScript
-> - jQuery
-> - Materialize
-> - HTML5
-> - CSS3
+ - RoR
+ - JavaScript
+ - jQuery
+ - Materialize
+ - HTML5
+ - CSS
 
 ## Contributing
 
