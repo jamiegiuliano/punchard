@@ -38,8 +38,6 @@
   background-color: white;
   color: #86878C;
   border-radius: 5%;
-  padding-left: 10rem;
-  padding-right: 10rem;
   font-weight: bold;
  }
 
@@ -168,17 +166,33 @@ hr {
 }
 
 .landing_action {
-padding-bottom: 2rem;
-padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
 }
 
-.demo_info {
+.demo_info, #login, #signup_page {
   padding-top: 1rem;
 }
 
 .signup_action {
   background-color: #89e589;
   color: white;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.signin_action {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.reg_link, .sessions_link {
+  padding-right: 1rem;
+}
+
+.forgot_link, .github_link {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 // CONFETTI
