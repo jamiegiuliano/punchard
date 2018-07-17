@@ -51,7 +51,12 @@
    padding: 7px;
  }
 
- .btn-small:hover {
+ .btn-large.signup_action:hover {
+   background-color: #5bc95b;
+   color: white;
+ }
+
+ .signin_action:hover {
    background-color: #666666;
    color: white;
  }
@@ -159,7 +164,7 @@ hr {
 }
 
 .landing_action {
-padding-bottom: 3rem;
+padding-bottom: 2rem;
 padding-top: 1rem;
 }
 

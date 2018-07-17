@@ -4,8 +4,7 @@
    <div class="col s12 m4 l8">
      <p>
        <h2 class="center landing logo">
-         <%= image_tag("/assets/logo.png", size: "100", class:"logo_image") %>
-         <span class="logo_text">Punchcard</span>
+         <%= image_tag("/assets/logo.png", height: 100, width: 450, class:"logo_image") %>
        </h2>
      </p>
    </div>
@@ -14,7 +13,7 @@
  <div class="center">
    <div class="col s12 m6 l3"><p></p></div>
    <div class="col s12 m6 l10 landing_action"><p><%= button_to 'Sign Up', new_user_registration_path, class: 'btn-large signup_action', method: :get %></p></div>
-   <div class="col s12 m6 l10"><p><%= button_to 'Sign In', new_user_session_path, class: 'btn-large', method: :get %></p></div>
+   <div class="col s12 m6 l10"><p><%= button_to 'Sign In', new_user_session_path, class: 'btn-large signin_action', method: :get %></p></div>
    <div class="col s12 m6 l3 demo_info"></div>
    <p id="demo">Demo with<br />Login: test@gmail.com | Password: testing</p>
  </div>
