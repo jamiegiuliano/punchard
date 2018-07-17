@@ -31,13 +31,16 @@
 
  nav {
    margin-bottom: 30px;
+   padding-top: 1rem;
  }
 
  .btn-large {
   background-color: white;
-  border: 2px solid #86878C;
   color: #86878C;
   border-radius: 5%;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  font-weight: bold;
  }
 
  .btn-small {
@@ -153,6 +156,20 @@ hr {
 
 .image {
   border: 1px solid;
+}
+
+.landing_action {
+padding-bottom: 3rem;
+padding-top: 1rem;
+}
+
+.demo_info {
+  padding-top: 1rem;
+}
+
+.signup_action {
+  background-color: #89e589;
+  color: white;
 }
 
 // CONFETTI
