@@ -3,11 +3,10 @@
     <div class="container nav-wrapper">
         <a href="#" data-activates="mobile-demo" id="nav_mobile_dropdown" class="button-collapse left"><i class="material-icons">menu</i></a>
       <a href="#" class="brand-logo left logo">
-        <%= image_tag("/assets/logo.png", size: "40", class:"center logo_image", alt: "Logo Image") %>
-        <span class="navbar-logo-text">Punchcard</span>
+        <%= image_tag("/assets/logo.png", height: "50", width: "250", class:"center logo_image", alt: "Logo Image") %>
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down navbar-text">
-          <li><%= link_to '<i class="material-icons">home</i>'.html_safe, authenticated_root_path %></li>
+          <li><%= link_to '<i class="material-icons">account_circle</i>'.html_safe, authenticated_root_path %></li>
           <li><%= link_to "New Merchant", new_merchant_path %></li>
           <li><%= link_to "Favorites", current_favorite_path %></li>
           <li><div class="vLine1"></li>
