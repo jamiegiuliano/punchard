@@ -3,7 +3,7 @@ function Merchant(data) {
   this.name = data.name;
   this.location = data.location;
   this.image = data.image;
-  this.star_count = data.star_count;
+  this.starCount = data.star_count;
   this.links = data.links;
   this.categories = data.categories;
 }
@@ -36,7 +36,7 @@ Merchant.prototype.buildMerchantShowPage = function() {
           <img alt="Icon" class="circle z-depth-3" height="150" width="150" src="${this.image}" /><br />
           <h4>${this.name}</h4>
           Location: ${this.location}<br />
-          Total Stars: ${this.star_count}<br />
+          Total Stars: ${this.starCount}<br />
           <br />
           <div class="divider"></div><br />
             <div class="merchant_links">
@@ -115,6 +115,16 @@ $(function newLink() {
 const getMerchantList = function() {
   $.get('/merchants.json').done(function(response) {
     let merchants = '';
+    response.sort(function(a, b) {
+      if (a["location"] < b["location"]) {
+        return -1;
+      }
+      if (a["location"] > b["location"]) {
+        return 1;
+      }
+      return 0;
+    })
+    console.log(response);
     $.each(response, function(index, value) {
       const merchant = new Merchant(value);
       merchants += merchant.buildMerchantsList();
@@ -124,7 +134,7 @@ const getMerchantList = function() {
 }
 
 const getNextMerchant = function(currentId) {
-  nextId = currentId + 1;
+  let nextId = currentId + 1;
   $.get('/merchants/' + nextId + '.json').done(function(response) {
     const merchant = new Merchant(response);
     const html = merchant.buildMerchantShowPage();
