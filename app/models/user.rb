@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   validates :password, presence: true
   devise :database_authenticatable, :registerable,

@@ -124,7 +124,6 @@ const getMerchantList = function() {
       }
       return 0;
     })
-    console.log(response);
     $.each(response, function(index, value) {
       const merchant = new Merchant(value);
       merchants += merchant.buildMerchantsList();

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Link < ApplicationRecord
   has_one :category, dependent: :destroy
   belongs_to :merchant
