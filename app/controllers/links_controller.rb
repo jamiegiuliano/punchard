@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# Mainly used for creating and handling link information
 class LinksController < ApplicationController
-  before_action :set_link, only: [:edit, :update, :show, :destroy]
+  before_action :set_link, only: %i[edit update show destroy]
 
   def create
     @link = Link.new(link_params)
@@ -18,7 +19,8 @@ class LinksController < ApplicationController
 
   def update
     if @link.update(link_params)
-      redirect_to merchant_path(current_merchant), notice: 'Link was successfully updated.'
+      redirect_to merchant_path(current_merchant),
+                  notice: 'Link was successfully updated.'
     else
       render :edit
     end
@@ -34,6 +36,7 @@ class LinksController < ApplicationController
   end
 
   private
+  
   def link_params
     params.require(:link).permit(:url, :merchant_id, category_attributes: [:name])
   end
