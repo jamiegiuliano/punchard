@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Creates Merchant to associate all connected links
 class Merchant < ApplicationRecord
   belongs_to :user
   has_many :links

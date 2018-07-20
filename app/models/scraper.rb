@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Scrapes HTML of Square account that User inputs
 require 'open-uri'
 require 'nokogiri'
 

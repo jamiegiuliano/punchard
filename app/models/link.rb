@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Refers to specific Square link
 class Link < ApplicationRecord
   has_one :category, dependent: :destroy
   belongs_to :merchant

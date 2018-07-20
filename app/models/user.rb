@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Each User is able to create an account to hold their seperate Square info.
 class User < ApplicationRecord
   validates :password, presence: true
   devise :database_authenticatable, :registerable,
