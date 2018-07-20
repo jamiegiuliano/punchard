@@ -11,8 +11,7 @@ class Link < ApplicationRecord
   validate :url_from_square
 
   def url_from_square
-    if !url.include?("squareup.com/")
-      errors[:url] << ("Must be from squareup.com")
-    end
+    return errors[:url] << 'Must be from squareup.com' unless
+      url.include?('squareup.com/')
   end
 end

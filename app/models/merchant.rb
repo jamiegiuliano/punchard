@@ -11,7 +11,7 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
 
-  scope :count_stars, -> {maximum(:star_count)}
+  scope :count_stars, -> { maximum(:star_count) }
 
   def self.by_location(location)
     where(location: location)
