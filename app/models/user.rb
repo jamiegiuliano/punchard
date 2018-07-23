@@ -2,7 +2,7 @@
 
 # Each User is able to create an account to hold their seperate Square info.
 class User < ApplicationRecord
-  validates :password, presence: true
+  validates :email, :password, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :omniauthable, omniauth_providers: [:github]
