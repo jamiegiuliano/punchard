@@ -21,8 +21,12 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = user_merchants.build(merchant_params)
+    # Square API changed, temp solution since scraping no longer allowed
+    if @merchant.image.nil?
+      @merchant.image = 'https://source.unsplash.com/collection/896121/150x150'
+    end
     if @merchant.save
-      Scraper.scrape_square(@merchant)
+      #Scraper.scrape_square(@merchant)
       redirect_to authenticated_root_path,
                   notice: "#{@merchant.name} created successfully."
     else
@@ -67,7 +71,7 @@ class MerchantsController < ApplicationController
   private
 
   def merchant_params
-    params.require(:merchant).permit(:name, :uid, :location, links_attributes: [:url, category_attributes: [:name]])
+    params.require(:merchant).permit(:name, :uid, :location, :star_count, links_attributes: [:url, category_attributes: [:name]])
   end
 
   def user_merchants

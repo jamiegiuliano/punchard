@@ -6,7 +6,10 @@
   <%= f.text_field :name, placeholder: "Sterling Coffee Roasters" %>
 
   <%= f.label :location %>
-  <%= f.text_field :location, placeholder: "Costa Mesa, CA" %>
+  <%= f.text_field :location, placeholder: "Portland, OR" %>
+
+  <%= f.label 'Current Star Count:' %>
+  <%= f.number_field :star_count, placeholder: '3' %>
 
     <% if !link.nil? %>
       <%= f.fields_for :links, link do |link_builder| %>

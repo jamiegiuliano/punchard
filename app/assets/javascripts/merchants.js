@@ -115,7 +115,7 @@ $(function newLink() {
 const getMerchantList = function() {
   $.get('/merchants.json').done(function(response) {
     let merchants = '';
-    response.sort(function(a, b) {
+    /* response.sort(function(a, b) {
       if (a["location"] < b["location"]) {
         return -1;
       }
@@ -123,7 +123,7 @@ const getMerchantList = function() {
         return 1;
       }
       return 0;
-    })
+    }) */
     $.each(response, function(index, value) {
       const merchant = new Merchant(value);
       merchants += merchant.buildMerchantsList();
