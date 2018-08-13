@@ -36,7 +36,7 @@ class LinksController < ApplicationController
   end
 
   private
-  
+
   def link_params
     params.require(:link).permit(:url, :merchant_id, category_attributes: [:name])
   end
