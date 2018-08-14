@@ -125,10 +125,10 @@ const getMerchantList = function() {
       return 0;
     }) */
     $.each(response, function(index, value) {
-      const merchant = new Merchant(value);
-      merchants += merchant.buildMerchantsList();
+      let merchant = new Merchant(value);
+       merchant = merchant.buildMerchantsList();
+       $('.all-merchants li').append(merchant);
     });
-    $('.all-merchants li').html(merchants);
   });
 }
 
