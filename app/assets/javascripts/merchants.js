@@ -88,12 +88,12 @@ $(function showMerchants() {
   });
 })
 
-$(function filterMerchants() {
-  $('#merchants_filter').submit(function() {
-    $.get(this.action, $(this).serialize(), null, "script");
-    return false;
-  });
-})
+// $(function filterMerchants() {
+//   $('#merchants_filter').submit(function() {
+//     $.get(this.action, $(this).serialize(), null, "script");
+//     return false;
+//   });
+// })
 
 $(function paginateMerchants() {
   $('.js-next').on("click", function(e) {
